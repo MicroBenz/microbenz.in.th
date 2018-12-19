@@ -5479,6 +5479,13 @@ gatsby-plugin-sharp@^2.0.6:
     sharp "^0.21.0"
     svgo "^0.7.2"
 
+gatsby-plugin-slug@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-slug/-/gatsby-plugin-slug-1.0.1.tgz#9fc5646ef34541e014c2656489825255e6efa91a"
+  integrity sha512-JAaeZ2On7CK11C7hsJRDXtBPgQIgf47L7QkuQsjNlZPkDKwsTLN8Ojqq2TTiMuDbYEZQ6Gh+g0RyDDHyoa03xQ==
+  dependencies:
+    parse-filepath "^1.0.2"
+
 gatsby-plugin-typography@^2.2.0:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-typography/-/gatsby-plugin-typography-2.2.2.tgz#94217c9d61e4cc19c1060bf21a960ced459438fe"
@@ -9240,7 +9247,7 @@ parse-entities@^1.0.2, parse-entities@^1.1.0:
     is-decimal "^1.0.0"
     is-hexadecimal "^1.0.0"
 
-parse-filepath@^1.0.1:
+parse-filepath@^1.0.1, parse-filepath@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/parse-filepath/-/parse-filepath-1.0.2.tgz#a632127f53aaf3d15876f5872f3ffac763d6c891"
   integrity sha1-pjISf1Oq89FYdvWHLz/6x2PWyJE=
