@@ -11,6 +11,18 @@
         "source": "**",
         "destination": "/index.html"
       }
+    ],
+    "redirect": [
+      {
+        "source": "/ลองใช้-styled-components-สิ-แล้วคุณจะลืมการเขียน-css-แบบเดิมๆ-ไปเลย-e310f5c7cf33",
+        "destination": "https://microbenz.in.th/ลองใช้-styled-components-สิ-แล้วคุณจะลืมการเขียน-css-แบบเดิมๆ-ไปเลย-e310f5c7cf33",
+        "type": 301
+      },
+      {
+        "source": "/4-ปีมันผ่านไปไวนะ-บันทึก-ณ-วันที่เรียนจบ-f97e2706ca8a",
+        "destination": "https://microbenz.in.th/4-ปีมันผ่านไปไวนะ-บันทึก-ณ-วันที่เรียนจบ-f97e2706ca8a",
+        "type": 301
+      }
     ]
   }
 }
