@@ -39,8 +39,6 @@ jobs:
       - run:
           name: Build
           command: yarn build
-deployment:
-  production:
-    branch: your_branch
-    commands:
-      - ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+      - run:
+          name: Deploy
+          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
