@@ -1,7 +1,22 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import styled, { createGlobalStyle } from 'styled-components';
 
-import { rhythm, scale } from '../utils/typography'
+const GlobalStyle = createGlobalStyle `
+  body {
+    font-family: 'Sarabun', Tahoma, sans-serif;
+  }
+`;
+
+const SiteTitle = styled.h1`
+  margin-top: 0;
+`;
+
+const HomeLink = styled(Link)`
+  box-shadow: none;
+  text-decoration: none;
+  color: inherit;
+`;
 
 class Layout extends React.Component {
   render() {
@@ -11,24 +26,10 @@ class Layout extends React.Component {
 
     if (location.pathname === rootPath) {
       header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
+        <SiteTitle
         >
-          <Link
-            style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-            to={'/'}
-          >
-            {title}
-          </Link>
-        </h1>
+          <HomeLink to={'/'}>{title}</HomeLink>
+        </SiteTitle>
       )
     } else {
       header = (
@@ -36,7 +37,6 @@ class Layout extends React.Component {
           style={{
             fontFamily: 'Montserrat, sans-serif',
             marginTop: 0,
-            marginBottom: rhythm(-1),
           }}
         >
           <Link
@@ -57,12 +57,11 @@ class Layout extends React.Component {
         style={{
           marginLeft: 'auto',
           marginRight: 'auto',
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
         {header}
         {children}
+        <GlobalStyle />
       </div>
     )
   }

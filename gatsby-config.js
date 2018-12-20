@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
+    title: 'เบนซ์เขียนบล็อกนะจ๊ะ - MicroBenz',
     author: 'Tananan Tangthanachaikul',
-    description: 'A starter blog demonstrating what Gatsby can do.',
+    description: 'เบนซ์เขียนบล็อกนะจ๊ะ',
     siteUrl: 'https://gatsby-starter-blog-demo.netlify.com/',
     social: {
       twitter: 'microbenz',
@@ -58,8 +58,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `เบนซ์เขียนบล็อกนะจ๊ะ`,
+        short_name: `MicroBenz`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
@@ -69,11 +69,19 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    // {
+    //   resolve: 'gatsby-plugin-typography',
+    //   options: {
+    //     pathToConfigModule: 'src/utils/typography',
+    //   },
+    // },
     {
-      resolve: 'gatsby-plugin-typography',
+      resolve: 'gatsby-plugin-google-fonts',
       options: {
-        pathToConfigModule: 'src/utils/typography',
-      },
-    },
+        fonts: [
+          'Sarabun:400,500,700'
+        ]
+      }
+    }
   ],
 }
