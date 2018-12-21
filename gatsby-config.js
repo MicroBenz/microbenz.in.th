@@ -6,8 +6,8 @@ module.exports = {
     siteUrl: 'https://gatsby-starter-blog-demo.netlify.com/',
     social: {
       twitter: 'microbenz',
-      medium: 'microbenz'
-    }
+      medium: 'microbenz',
+    },
   },
   plugins: [
     {
@@ -69,6 +69,7 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
     // {
     //   resolve: 'gatsby-plugin-typography',
     //   options: {
@@ -78,10 +79,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
-        fonts: [
-          'Sarabun:400,500,700'
-        ]
-      }
-    }
+        fonts: ['Sarabun:400,500,700'],
+      },
+    },
   ],
 }

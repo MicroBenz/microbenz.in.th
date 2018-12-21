@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 
 import Bio from '../components/bio'
-import Layout from '../components/layout'
+import Layout from '../components/Layout/Layout'
 import SEO from '../components/seo'
 
 class BlogPostTemplate extends React.Component {
@@ -13,7 +13,8 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={post.frontmatter.title} description={post.excerpt} />
-        <h1>{post.frontmatter.title}</h1>
+        <h1 className="title">{post.frontmatter.title}</h1>
+        <Bio />
         <p
           style={{
             display: 'block',
@@ -21,12 +22,11 @@ class BlogPostTemplate extends React.Component {
         >
           {post.frontmatter.date}
         </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-          }}
+        <div
+          className="content"
+          dangerouslySetInnerHTML={{ __html: post.html }}
         />
-        <Bio />
+        <hr style={{}} />
 
         <ul
           style={{
@@ -38,20 +38,18 @@ class BlogPostTemplate extends React.Component {
           }}
         >
           <li>
-            {
-              previous &&
+            {previous && (
               <Link to={previous.fields.slug} rel="prev">
                 ← {previous.frontmatter.title}
               </Link>
-            }
+            )}
           </li>
           <li>
-            {
-              next &&
+            {next && (
               <Link to={next.fields.slug} rel="next">
                 {next.frontmatter.title} →
               </Link>
-            }
+            )}
           </li>
         </ul>
       </Layout>

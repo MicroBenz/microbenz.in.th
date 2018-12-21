@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+$body-size: 18px;
+$family-sans-serif: 'Sarabun', Tahoma, sans-serif;
+$body-line-height: 2;
+
+@import 'bulma/sass/utilities/_all.sass';
+@import 'bulma/sass/base/_all.sass';
+@import 'bulma/sass/components/navbar.sass';
+@import 'bulma/sass/elements/container.sass';
+@import 'bulma/sass/elements/content.sass';
+@import 'bulma/sass/elements/title.sass';
