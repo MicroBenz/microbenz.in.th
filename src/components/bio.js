@@ -1,8 +1,16 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import Image from 'gatsby-image'
+import GImage from 'gatsby-image'
+import styled from 'styled-components'
 
-function Bio() {
+const Image = styled(GImage)`
+  margin-bottom: 0;
+  min-width: 50px;
+  border-radius: 100%;
+  margin-right: 8px;
+`
+
+function Bio({ date }) {
   return (
     <StaticQuery
       query={bioQuery}
@@ -14,21 +22,13 @@ function Bio() {
               display: 'flex',
             }}
           >
-            <Image
-              fixed={data.avatar.childImageSharp.fixed}
-              alt={author}
-              style={{
-                marginBottom: 0,
-                minWidth: 50,
-                borderRadius: '100%',
-              }}
-            />
-            <p>
-              Written by <strong>{author}</strong>.{' '}
-              <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
-              </a>
-            </p>
+            <Image fixed={data.avatar.childImageSharp.fixed} alt={author} />
+            <div>
+              <p>
+                <strong>{author}</strong>
+              </p>
+              {date && <p>{date}</p>}
+            </div>
           </div>
         )
       }}

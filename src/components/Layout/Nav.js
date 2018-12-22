@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 const Nav = props => {
   return (
@@ -8,13 +9,13 @@ const Nav = props => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a className="navbar-item" href="https://bulma.io">
+        <Link className="navbar-item" to="/">
           <img
             src="https://bulma.io/images/bulma-logo.png"
             width="112"
             height="28"
           />
-        </a>
+        </Link>
 
         <a
           role="button"

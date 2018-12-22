@@ -1,9 +1,24 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import styled from 'styled-components'
 
 import Bio from '../components/bio'
 import Layout from '../components/Layout/Layout'
 import SEO from '../components/seo'
+
+const BlogContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
+const BlogImage = styled(Img)`
+  width: 300px;
+`
+
+const ContentContainer = styled.div`
+  padding-left: 16px;
+`
 
 class BlogIndex extends React.Component {
   render() {
@@ -20,15 +35,20 @@ class BlogIndex extends React.Component {
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
-            <div key={node.fields.slug}>
-              <h3 style={{}}>
-                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
+            <BlogContainer key={node.fields.slug}>
+              <BlogImage
+                sizes={node.frontmatter.featuredImage.childImageSharp.sizes}
+              />
+              <ContentContainer>
+                <h3 style={{}}>
+                  <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
+                    {title}
+                  </Link>
+                </h3>
+                <small>{node.frontmatter.date}</small>
+                <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+              </ContentContainer>
+            </BlogContainer>
           )
         })}
       </Layout>
@@ -55,6 +75,13 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
+            featuredImage {
+              childImageSharp {
+                sizes(maxWidth: 630) {
+                  ...GatsbyImageSharpSizes
+                }
+              }
+            }
           }
         }
       }
