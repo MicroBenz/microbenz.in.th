@@ -10,6 +10,7 @@ import SEO from '../components/seo'
 const BlogContainer = styled.div`
   display: flex;
   flex-direction: row;
+  margin-bottom: 16px;
 `
 
 const BlogImage = styled(Img)`
@@ -20,12 +21,15 @@ const ContentContainer = styled.div`
   padding-left: 16px;
 `
 
+const Tag = styled.span`
+  margin-right: 8px;
+`
+
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
-    console.log(posts)
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
@@ -34,6 +38,7 @@ class BlogIndex extends React.Component {
         />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
+          const tags = node.frontmatter.tags || []
           return (
             <BlogContainer key={node.fields.slug}>
               <BlogImage
@@ -46,7 +51,16 @@ class BlogIndex extends React.Component {
                   </Link>
                 </h3>
                 <small>{node.frontmatter.date}</small>
-                <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+                {tags.length > 0 && (
+                  <div>
+                    {tags.map(tag => (
+                      <Link to={`/tags/${tag}`}>
+                        <Tag className="tag is-info">{tag}</Tag>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+                {/* <p dangerouslySetInnerHTML={{ __html: node.excerpt }} /> */}
               </ContentContainer>
             </BlogContainer>
           )
@@ -75,6 +89,7 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
+            tags
             featuredImage {
               childImageSharp {
                 sizes(maxWidth: 630) {
