@@ -25,6 +25,10 @@ const Tag = styled.span`
   margin-right: 8px;
 `
 
+const BlogLink = styled(Link)`
+  box-shadow: none;
+`
+
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
@@ -40,29 +44,29 @@ class BlogIndex extends React.Component {
           const title = node.frontmatter.title || node.fields.slug
           const tags = node.frontmatter.tags || []
           return (
-            <BlogContainer key={node.fields.slug}>
-              <BlogImage
-                sizes={node.frontmatter.featuredImage.childImageSharp.sizes}
-              />
-              <ContentContainer>
-                <h3 style={{}}>
-                  <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                    {title}
-                  </Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-                {tags.length > 0 && (
-                  <div>
-                    {tags.map(tag => (
-                      <Link to={`/tags/${tag}`}>
-                        <Tag className="tag is-info">{tag}</Tag>
-                      </Link>
-                    ))}
-                  </div>
+            <BlogLink to={node.fields.slug}>
+              <BlogContainer key={node.fields.slug}>
+                {node.frontmatter.featuredImage && (
+                  <BlogImage
+                    sizes={node.frontmatter.featuredImage.childImageSharp.sizes}
+                  />
                 )}
-                {/* <p dangerouslySetInnerHTML={{ __html: node.excerpt }} /> */}
-              </ContentContainer>
-            </BlogContainer>
+                <ContentContainer>
+                  <h3>{title}</h3>
+                  <small>{node.frontmatter.date}</small>
+                  {tags.length > 0 && (
+                    <div>
+                      {tags.map(tag => (
+                        <Link to={`/tags/${tag}`}>
+                          <Tag className="tag is-info">{tag}</Tag>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                  {/* <p dangerouslySetInnerHTML={{ __html: node.excerpt }} /> */}
+                </ContentContainer>
+              </BlogContainer>
+            </BlogLink>
           )
         })}
       </Layout>

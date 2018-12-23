@@ -3,10 +3,8 @@ title: Graduation is just the beginning
 date: '2018-10-13T10:00:00.000Z'
 slug: graduate-is-just-the-beginning
 featuredImage: './cover.jpg'
-tags: ['Graduation', 'Life Lesson']
+tags: ['graduation', 'life-lesson']
 ---
-
-![Graduation is just the beginning](./cover.jpg)
 
 เทศกาลรับปริญญาวนกลับมาอีกแล้ว ก็ขอแสดงความยินดีกับบัณฑิตในปีนี้ทุกคนมากๆ นะครับ
 

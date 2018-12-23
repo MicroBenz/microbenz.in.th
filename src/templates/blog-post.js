@@ -1,19 +1,37 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
+import Img from 'gatsby-image'
 
 import Bio from '../components/bio'
 import Layout from '../components/Layout/Layout'
 import SEO from '../components/seo'
+
+const FeaturedImage = styled(Img)`
+  margin-bottom: 1.5rem;
+`
+
+const ViewMoreSection = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  margin-bottom: 1.5rem;
+`
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
+    console.log(post)
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <h1 className="title">{post.frontmatter.title}</h1>
+        <FeaturedImage
+          sizes={post.frontmatter.featuredImage.childImageSharp.sizes}
+        />
         {/* <Bio date={post.frontmatter.date} /> */}
         <div
           className="content"
@@ -21,15 +39,7 @@ class BlogPostTemplate extends React.Component {
         />
         <hr style={{}} />
 
-        <ul
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            listStyle: 'none',
-            padding: 0,
-          }}
-        >
+        <ViewMoreSection>
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
@@ -44,7 +54,7 @@ class BlogPostTemplate extends React.Component {
               </Link>
             )}
           </li>
-        </ul>
+        </ViewMoreSection>
       </Layout>
     )
   }
@@ -67,6 +77,13 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        featuredImage {
+          childImageSharp {
+            sizes(maxWidth: 630) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
       }
     }
   }
