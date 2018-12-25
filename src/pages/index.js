@@ -11,14 +11,26 @@ const BlogContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: 16px;
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `
 
-const BlogImage = styled(Img)`
-  width: 300px;
+const BlogImage = styled.div`
+  max-width: 300px;
+  width: 100%;
+  @media (max-width: 600px) {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 16px;
+  }
 `
 
 const ContentContainer = styled.div`
   padding-left: 16px;
+  @media (max-width: 600px) {
+    padding-left: 0;
+  }
 `
 
 const Tag = styled.span`
@@ -29,6 +41,14 @@ const BlogLink = styled(Link)`
   box-shadow: none;
 `
 
+const DateText = styled.small`
+  color: #000;
+`
+
+const BlogTitle = styled.h3`
+  margin-bottom: 8px !important;
+`
+
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
@@ -37,6 +57,7 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
+          isHome
           title="All posts"
           keywords={['blog', 'gatsby', 'javascript', 'react']}
         />
@@ -44,22 +65,33 @@ class BlogIndex extends React.Component {
           const title = node.frontmatter.title || node.fields.slug
           const tags = node.frontmatter.tags || []
           return (
-            <BlogLink to={node.fields.slug}>
+            <BlogLink to={node.fields.slug} key={node.fields.slug}>
               <BlogContainer key={node.fields.slug}>
                 {node.frontmatter.featuredImage && (
-                  <BlogImage
-                    sizes={node.frontmatter.featuredImage.childImageSharp.sizes}
-                  />
+                  <BlogImage>
+                    <Img
+                      // src={
+                      //   node.frontmatter.featuredImage.childImageSharp.fluid.src
+                      // }
+                      // srcSet={
+                      //   node.frontmatter.featuredImage.childImageSharp.fluid
+                      //     .srcSet
+                      // }
+                      fluid={
+                        node.frontmatter.featuredImage.childImageSharp.fluid
+                      }
+                      // sizes={node.frontmatter.featuredImage.childImageSharp.sizes}
+                    />
+                  </BlogImage>
                 )}
                 <ContentContainer>
-                  <h3>{title}</h3>
-                  <small>{node.frontmatter.date}</small>
+                  <BlogTitle className="title is-4">{title}</BlogTitle>
                   {tags.length > 0 && (
                     <div>
                       {tags.map(tag => (
-                        <Link to={`/tags/${tag}`}>
-                          <Tag className="tag is-info">{tag}</Tag>
-                        </Link>
+                        // <Link to={`/tags/${tag}`}>
+                        <Tag className="tag is-info">{tag}</Tag>
+                        // </Link>
                       ))}
                     </div>
                   )}
@@ -91,13 +123,12 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
             title
             tags
             featuredImage {
               childImageSharp {
-                sizes(maxWidth: 630) {
-                  ...GatsbyImageSharpSizes
+                fluid(maxWidth: 300) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

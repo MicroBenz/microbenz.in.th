@@ -3,7 +3,7 @@ module.exports = {
     title: 'เบนซ์เขียนบล็อกนะจ๊ะ - MicroBenz',
     author: 'Tananan Tangthanachaikul',
     description: 'เบนซ์เขียนบล็อกนะจ๊ะ',
-    siteUrl: 'https://gatsby-starter-blog-demo.netlify.com/',
+    siteUrl: 'https://microbenz.in.th/',
     social: {
       twitter: 'microbenz',
       medium: 'microbenz',
@@ -65,7 +65,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/favicon.png`,
       },
     },
     `gatsby-plugin-offline`,

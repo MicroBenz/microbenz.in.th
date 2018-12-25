@@ -11,7 +11,10 @@ const MainNav = styled.nav`
 
 const Branding = styled.div`
   justify-content: center;
+  align-items: center !important;
 `
+
+const BetaTag = styled.div``
 
 const Nav = props => {
   return (
@@ -25,6 +28,7 @@ const Nav = props => {
           <Link className="navbar-item" to="/">
             <img src={require('./logo.png')} />
           </Link>
+          <BetaTag className="tag is-danger">Beta</BetaTag>
 
           {/* <a
             role="button"
