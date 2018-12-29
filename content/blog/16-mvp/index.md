@@ -20,7 +20,8 @@ tags: ['product']
 
 ผมขอยกตัวอย่างด้วยภาพละกัน
 
-![](https://cdn-images-1.medium.com/max/1600/1*6v4DKb_ecQ8JXvtpp94dUw.png)
+![เปรียบ MVP ดังการทำรถขึ้นมา 1 คัน](https://cdn-images-1.medium.com/max/1600/1*6v4DKb_ecQ8JXvtpp94dUw.png)
+
 ถ้าลูกค้าบอกว่า อยากได้รถคันนึง ผมเชื่อเลยเถอะว่า ในมุมมองคนสาย engineer ก็คงคิดแบบผมในตอนแรกแหละ เอ้ย ก็ต้องทำล้อก่อน แล้วค่อยทำช่วงล่าง ค่อยทำเครื่องยนต์ ทำตัวถัง แล้วประกอบด้วยกัน
 
 แต่ถามว่า ลูกค้าจะรู้สึกยังไง…แม่มกว่าจะได้รถมาคันนึง โคตรนาน
@@ -71,7 +72,4 @@ tags: ['product']
 
 อยากให้ทุกคนคำนึงถึง MVP ไว้เยอะๆ นะครับ :)
 
-Update: หลังจากเขียนอันนี้เสร็จ medium มันก็ suggest บล็อกนี้มาให้อ่าน ละเอียดมากๆ ลองไปอ่านได้ครับ
-[**Minimum Viable Product: Define the Best-fit Type, Method, and Follow Simple Building Stages**
-
-*If there was a book about the most epic startups’ fails, it would have at least a thousand pages. Everybody makes…*medium.com](https://medium.com/swlh/minimum-viable-product-define-the-best-fit-type-method-and-follow-simple-building-stages-3bd0b0d66607 "https://medium.com/swlh/minimum-viable-product-define-the-best-fit-type-method-and-follow-simple-building-stages-3bd0b0d66607")[](https://medium.com/swlh/minimum-viable-product-define-the-best-fit-type-method-and-follow-simple-building-stages-3bd0b0d66607)
+Update: หลังจากเขียนอันนี้เสร็จ medium มันก็ suggest บล็อกนี้มาให้อ่าน ละเอียดมากๆ ลองไปอ่านได้ครับ [**Minimum Viable Product: Define the Best-fit Type, Method, and Follow Simple Building Stages**](https://medium.com/swlh/minimum-viable-product-define-the-best-fit-type-method-and-follow-simple-building-stages-3bd0b0d66607)
