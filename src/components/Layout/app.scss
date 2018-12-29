@@ -15,6 +15,15 @@ $widescreen-enabled: true !default;
 $fullhd: 960px + (2 * $gap) !default;
 $fullhd-enabled: true !default;
 
+.content > p > img {
+  display: block;
+  margin: 0 auto;
+  max-width: 80%;
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+}
+
 @import 'bulma/sass/utilities/_all.sass';
 @import 'bulma/sass/base/_all.sass';
 @import 'bulma/sass/components/navbar.sass';

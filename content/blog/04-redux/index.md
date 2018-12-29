@@ -21,7 +21,8 @@ tags: ['javascript', 'developer']
 
 ## ปัญหาของการจัดการ state ในแอพขนาดใหญ่
 
-![](https://cdn-images-1.medium.com/max/1600/1*HKXlvGrJBbM9NPNgBtZEqg.jpeg)ที่มา: <http://image.slidesharecdn.com/react-slides-140706092503-phpapp02/95/reactjs-or-why-dom-finally-makes-sense-11-638.jpg?cb=1404638753>
+![](https://cdn-images-1.medium.com/max/1600/1*HKXlvGrJBbM9NPNgBtZEqg.jpeg)
+
 อย่างที่เรารู้ๆ กันว่า state นั้นถ้าพูดกันตรงๆ จะบอกว่าเป็นข้อมูลที่ component นำไปใช้ก็ว่าได้ แต่ให้ลองนึกภาพว่าถ้าเราเขียน React แบบเพียวๆ เลย พอแอพขนาดใหญ่ขึ้น เราจะพบกับความปวดหัวของการจัดการ state พอสมควร
 
 เช่น ตัวอย่างง่ายๆ สมมติว่ามี 2 component ต้องใช้ข้อมูล state เหมือนๆ กันเลย ถ้าเกิดเหตุการณ์ว่า state ภายใน component ใดเปลี่ยนค่ามา อีกอันก็ต้องตามไปอัพเดต ซึ่งด้วยความที่ว่า state ใน component มันจัดการในตัว component เอง ถ้าต้องข้ามหัวไปแก้ค่าของคนอื่นด้วย ความสนุกมันก็บังเกิดละ
@@ -38,29 +39,35 @@ Redux นำเสนอสามหลักการของตนเอง �
 
 ### **ข้อที่หนึ่ง: Single Source of Truth —ความจริงมีเพียงหนึ่งเดียวเท่านั้นที่ Store**
 
-![](https://cdn-images-1.medium.com/max/1600/1*akoNAnUyWIN3g8BTRU9Z5g.jpeg)โคนันก็มา (ที่มา: <http://upic.me/i/ro/z9574.jpg>)
+![](https://cdn-images-1.medium.com/max/1600/1*akoNAnUyWIN3g8BTRU9Z5g.jpeg)
+
 Redux นำเสนอสิ่งที่เรียกว่า **Store **ขึ้นมา โดยที่
 
 > Store คือคนรวม State ของทั้งแอพไว้แต่เพียงผู้เดียว
 
 พูดง่ายๆ ทั้งแอพมี state อะไรบ้าง มาถามที่ store นี่แหละ รู้แน่นอน ทำให้เขาเรียก store ว่าเป็นแหล่งความจริงเพียงหนึ่งเดียวเท่านั้น (โคนันก็มา) ดังนั้นการ debug ดู state จึงง่ายขึ้นมาก ก็แค่มาดู store ก็รู้สภาพของโลกตอนนี้ละ
 
-![](https://cdn-images-1.medium.com/max/1600/1*4Sq2I0T30xUmdywMzb60WQ.png)Store จะเก็บ state ทั้งหมดไว้ และส่ง state ไปให้แต่ละ component ที่ต้องการใช้ (ลูกศรสีฟ้า) ที่มาภาพ: <https://css-tricks.com/wp-content/uploads/2016/03/redux-article-3-03.svg>
+![](https://cdn-images-1.medium.com/max/1600/1*4Sq2I0T30xUmdywMzb60WQ.png)
+
+_Store จะเก็บ state ทั้งหมดไว้ และส่ง state ไปให้แต่ละ component ที่ต้องการใช้ (ลูกศรสีฟ้า)_
+
 ซึ่งจริงๆ store นั้นก็ไม่ได้เป็น data structure ที่ซับซ้อนยากบรรลัยนะครับ มันก็เป็น plain JavaScript object ธรรมดานี่แหละ
 
+```javascript
+{
+  visibilityFilter: 'SHOW_ALL',
+  todos: [
     {
-      visibilityFilter: 'SHOW_ALL',
-      todos: [
-        {
-          text: 'Consider using Redux',
-          completed: true,
-        },
-        {
-          text: 'Keep all state in a single tree',
-          completed: false
-        }
-      ]
+      text: 'Consider using Redux',
+      completed: true,
+    },
+    {
+      text: 'Keep all state in a single tree',
+      completed: false
     }
+  ]
+}
+```
 
 ตามตัวอย่างข้างบน store นี้จะมีทั้ง todos (ซึ่งเป็น data state) กับ visibilityFilter (ที่เป็น UI state) อยู่ด้วยกันใน store ครับ
 
@@ -72,15 +79,17 @@ Redux นำเสนอสิ่งที่เรียกว่า **Store **
 
 Action เป็น object ธรรมดาเหมือนกันแหละครับ ไม่ได้มีความพิเศษอะไร แต่สิ่งที่ Action จะบอกเราก็คือ ตอนนี้เกิด Action อะไรขึ้น แล้วมีค่าอะไรแฝงมาไหม ตัวอย่างเช่น
 
-    store.dispatch({
-      type: 'COMPLETE_TODO',
-      index: 1
-    })
+```javascript
+store.dispatch({
+  type: 'COMPLETE_TODO',
+  index: 1,
+})
 
-    store.dispatch({
-      type: 'SET_VISIBILITY_FILTER',
-      filter: 'SHOW_COMPLETED'
-    })
+store.dispatch({
+  type: 'SET_VISIBILITY_FILTER',
+  filter: 'SHOW_COMPLETED',
+})
+```
 
 dispatch เป็นฟังก์ชันที่ไว้ใช้บอก store ว่าเกิด action ขึ้น โดยในฟังก์ชัน dispatch จะมีพารามิเตอร์คือ Action ครับ อย่างที่เห็น ตัวอย่างจะมี 2 action คือ
 
@@ -99,14 +108,16 @@ dispatch เป็นฟังก์ชันที่ไว้ใช้บอ�
 
 ลองดูโค้ดครับ
 
-    function visibilityFilter(state = 'SHOW_ALL', action) {
-      switch (action.type) {
-        case 'SET_VISIBILITY_FILTER':
-          return action.filter
-        default:
-          return state
-      }
-    }
+```javascript
+function visibilityFilter(state = 'SHOW_ALL', action) {
+  switch (action.type) {
+    case 'SET_VISIBILITY_FILTER':
+      return action.filter
+    default:
+      return state
+  }
+}
+```
 
 อย่าง reducer ตัวนี้ จะเป็นคนจัดการเซ็ต visibility filter สำหรับหน้า UI โดยที่ถ้าดูๆ จะเห็นว่า มันเป็นฟังก์ชันรับสองพารามิเตอร์ อันแรกคือ state ปัจจุบันครับ (ซึ่ง default อันนี้คือ `SHOW_ALL` โชว์ทั้งหมด) และอีกอันคือ action ที่เกิดขึ้นครับ โดยสิ่งที่เราจะทำคือ หาก action นั้นเป็น type `SET_VISIBILITY_FILTER` ให้ return ค่า filter จาก object action ออกไปเลย **ซึ่งค่าที่ return นั้นคือ state ใหม่เลย**
 
@@ -114,36 +125,41 @@ dispatch เป็นฟังก์ชันที่ไว้ใช้บอ�
 
 และแน่นอน ก็มีกรณีทั่วไป คือถ้า type ไม่เข้าพวก ก็จะ return state เดิมไป
 
-![](https://cdn-images-1.medium.com/max/1600/1*IdmwO716Mm4hcAlFxSUl6g.png)หน้าที่ของ Reducer แบบฉบับรูป (ที่มา: <https://css-tricks.com/wp-content/uploads/2016/03/redux-article-3-04.svg>)
+![](https://cdn-images-1.medium.com/max/1600/1*IdmwO716Mm4hcAlFxSUl6g.png)
+
+_หน้าที่ของ Reducer แบบฉบับรูป_
+
 มาลองดูอันที่ซับซ้อนขึ้น
 
-    function todos(state = [], action) {
-      switch (action.type) {
-        case 'ADD_TODO':
-          return [
-            ...state,
-            {
-              text: action.text,
-              completed: false
-            }
-          ]
-        case 'COMPLETE_TODO':
-          return state.map((todo, index) => {
-            if (index === action.index) {
-              return Object.assign({}, todo, {
-                completed: true
-              })
-            }
-            return todo
+```javascript
+function todos(state = [], action) {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return [
+        ...state,
+        {
+          text: action.text,
+          completed: false,
+        },
+      ]
+    case 'COMPLETE_TODO':
+      return state.map((todo, index) => {
+        if (index === action.index) {
+          return Object.assign({}, todo, {
+            completed: true,
           })
-        default:
-          return state
-      }
-    }
+        }
+        return todo
+      })
+    default:
+      return state
+  }
+}
+```
 
 อันนี้เป็น reducer ที่จะจัดการข้อมูล todo ครับ โดยหากสมมติว่า action ที่มาคือ user ทำการเพิ่ม todo อันใหม่ไป (action type เป็น ‘ADD_TODO’) ก็จะคืน state ใหม่ที่จะทำการเพิ่ม todo อันใหม่ลงไปใน state เดิมครับ (**อย่าลืมว่าเราคืน state ใหม่ไปนะ**)
 
-ที่เห็นมี …state แล้วอะไรต่อนั้น มันเป็นท่าใน JavaScript ES6 ครับ ขอไม่อธิบายเพิ่มละกัน (จำชื่อเรียกมันไม่ได้ ไม่ใช่อะไร 5555)
+ที่เห็นมี `…state` แล้วอะไรต่อนั้น มันเป็นท่าใน JavaScript ES6 ครับ ขอไม่อธิบายเพิ่มละกัน (จำชื่อเรียกมันไม่ได้ ไม่ใช่อะไร 5555)
 
 นอกจากนั้นอีกเคสคือ ถ้า type เป็น ‘COMPLETE_TODO’ ก็จะจัดการเซ็ตให้ field completed เป็น true ใน index ที่เขาบอกมาครับ แต่อย่าลืมว่าเราไม่ได้เซ็ต field ดังกล่าวกับ state เดิมตรงๆ เราจะ return state ใหม่ที่เซ็ต field ดังกล่าวแล้วครับ
 
@@ -151,9 +167,11 @@ dispatch เป็นฟังก์ชันที่ไว้ใช้บอ�
 
 แต่อย่างที่เห็น เราจะพบว่ามี reducer สองตัว เราก็จะทำการรวมมันเข้าด้วยกัน เป็นเสมือน reducer ตัวเดียว
 
-    import { combineReducers, createStore } from 'redux'
-    let reducer = combineReducers({ visibilityFilter, todos })
-    let store = createStore(reducer)
+```javascript
+import { combineReducers, createStore } from 'redux'
+let reducer = combineReducers({ visibilityFilter, todos })
+let store = createStore(reducer)
+```
 
 (ดูดีๆ นะ reducer รวมเป็น object ก้อนเดียว)
 
@@ -191,33 +209,28 @@ dispatch เป็นฟังก์ชันที่ไว้ใช้บอ�
 - **ปกติจะเป็น stateful component เลย**
 - และ **containers จะถูกสร้างเป็น [Higher Order Component](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.hispoyn1n)** (สั้นๆ มันคือ component ที่ wrap component อื่นๆ) ผ่านฟังก์ชัน connect() ของ React Redux (ถ้าใช้ architecture อื่นๆ ก็จะมีอะไรประมาณนี้เหมือนๆ กัน แต่ชื่อฟังก์ชันจะต่างกันไปตาม architecture นั้นๆ)
 
-หากสนใจอ่านละเอียดลึกๆ ตามนี้ได้เลย
-[**Presentational and Container Components**
-
-*You’ll find your components much easier to reuse and reason about if you divide them into two categories.*medium.com](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0 "https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0")[](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
+หากสนใจอ่านละเอียดลึกๆ [ตามนี้ได้เลย](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
 
 ## สรุปแล้ว Containers จะมายังไง?
 
-โดยปกติ containers ของ React Redux นั้นจะสร้างจากฟังก์ชัน **connect()** เลย จะขอยกตัวอย่างเป็นโค้ดละกันครับ
+โดยปกติ containers ของ React Redux นั้นจะสร้างจากฟังก์ชัน `connect()` เลย จะขอยกตัวอย่างเป็นโค้ดละกันครับ
 
 สมมติเรามี TodoList component
 
-    import React from 'react'
-    import Todo from './Todo'
+```javascript
+import React from 'react'
+import Todo from './Todo'
 
-    const TodoList = ({ todos, onTodoClick }) => (
-      <ul>
-        {todos.map(todo =>
-          <Todo
-            key={todo.id}
-            {...todo}
-            onClick={() => onTodoClick(todo.id)}
-          />
-        )}
-      </ul>
-    )
+const TodoList = ({ todos, onTodoClick }) => (
+  <ul>
+    {todos.map(todo => (
+      <Todo key={todo.id} {...todo} onClick={() => onTodoClick(todo.id)} />
+    ))}
+  </ul>
+)
 
-    export default TodoList
+export default TodoList
+```
 
 เราจะรู้เลยว่า อ่อไอ้นี่มัน Dumb component นี่หว่า เพราะมันจะทำหน้าที่แค่
 
@@ -228,20 +241,22 @@ dispatch เป็นฟังก์ชันที่ไว้ใช้บอ�
 
 ทีนี้ใน TodoList นี้ก็มีการใช้ component Todo ด้วย ดังนั้นจึงต้องทำ component ของ Todo ด้วย ดังนี้
 
-    import React from 'react'
+```javascript
+import React from 'react'
 
-    const Todo = ({ onClick, completed, text }) => (
-      <li
-        onClick={onClick}
-        style={{
-          textDecoration: completed ? 'line-through' : 'none'
-        }}
-      >
-        {text}
-      </li>
-    )
+const Todo = ({ onClick, completed, text }) => (
+  <li
+    onClick={onClick}
+    style={{
+      textDecoration: completed ? 'line-through' : 'none',
+    }}
+  >
+    {text}
+  </li>
+)
 
-    export default Todo
+export default Todo
+```
 
 เช่นเดียวกับ TodoList อันนี้ก็เป็น dumb component อีกอัน
 
@@ -251,16 +266,18 @@ dispatch เป็นฟังก์ชันที่ไว้ใช้บอ�
 
 ลองดูโค้ดกัน
 
-    const getVisibleTodos = (todos, filter) => {
-      switch (filter) {
-        case 'SHOW_ALL':
-          return todos
-        case 'SHOW_COMPLETED':
-          return todos.filter(t => t.completed)
-        case 'SHOW_ACTIVE':
-          return todos.filter(t => !t.completed)
-      }
-    }
+```javascript
+const getVisibleTodos = (todos, filter) => {
+  switch (filter) {
+    case 'SHOW_ALL':
+      return todos
+    case 'SHOW_COMPLETED':
+      return todos.filter(t => t.completed)
+    case 'SHOW_ACTIVE':
+      return todos.filter(t => !t.completed)
+  }
+}
+```
 
 เริ่มอันแรก เราสร้างฟังก์ชันชื่อ getVisibleTodos ที่จะรับพารามิเตอร์คือ todo list และ filter โดยฟังก์ชันนี้จะคืนรายการ todo ตาม filter ที่เข้ามา เช่น
 
@@ -270,23 +287,27 @@ dispatch เป็นฟังก์ชันที่ไว้ใช้บอ�
 
 และไฮไลท์คือฟังก์ชัน mapStateToProps ครับ
 
-    const mapStateToProps = (state) => {
-      return {
-        todos: getVisibleTodos(state.todos, state.visibilityFilter)
-      }
-    }
+```javascript
+const mapStateToProps = state => {
+  return {
+    todos: getVisibleTodos(state.todos, state.visibilityFilter),
+  }
+}
+```
 
 ฟังก์ชันนี้จะทำการ return props ที่จะส่งให้ Dumb component เอาไปใช้จริงๆ โดยมีพารามิเตอร์เป็น state ปัจจุบันครับ (มันเลยเรียกว่า mapStateToProps ไงครับ คือแปลงจาก state ของ Redux เป็น props ของ React) โดยอันนี้จะได้ props ที่มี key ชื่อ todos มี value เป็นรายการ todos ตามการ filter ปัจจุบัน โดยจะได้มาจาก function ที่เราเขียนไว้
 
 แต่ทีนี้อย่าลืมว่าเราทำ action ไว้ด้วย เมื่อกด todo อันใดๆ ก็จะทำการเปลี่ยนสถานะ todo อันนั้นเป็น complete ดังนั้น Redux จึงให้เราเขียนอีกฟังก์ชันนึง คือ **mapDispatchToProps** ที่จะแปลงร่าง dispatch (ตัวส่ง action ให้ reducers) ให้เป็น props เพื่อให้ Dumb component เอาไปเรียกนั่นเอง
 
-    const mapDispatchToProps = (dispatch) => {
-      return {
-        onTodoClick: (id) => {
-          dispatch(toggleTodo(id))
-        }
-      }
-    }
+```javascript
+const mapDispatchToProps = dispatch => {
+  return {
+    onTodoClick: id => {
+      dispatch(toggleTodo(id))
+    },
+  }
+}
+```
 
 โดยอันนี้เราจะให้มีการ dispatch action toggleTodo ตาม id ที่ส่งมานั่นเอง
 
@@ -294,14 +315,16 @@ dispatch เป็นฟังก์ชันที่ไว้ใช้บอ�
 
 เสร็จแล้วเราเอามันประกอบร่างกับ React component ด้วยฟังก์ชัน connect ครับ
 
-    import { connect } from 'react-redux'
+```javascript
+import { connect } from 'react-redux'
 
-    const VisibleTodoList = connect(
-      mapStateToProps,
-      mapDispatchToProps
-    )(TodoList)
+const VisibleTodoList = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoList)
 
-    export default VisibleTodoList
+export default VisibleTodoList
+```
 
 และ VisibleTodoList ที่ได้มันคือ containers นี่เอง อย่างที่บอกครับ มันเป็น Higher Order Component มันจะ wrap component ที่เราเขียนๆ มาเฉยๆ แต่การ wrap นี้มันพิเศษที่เรามีการแปลง Redux state ให้อยู่ในรูปของ props ที่ component TodoList จะเอาไปใช้นั่นเอง
 
@@ -309,27 +332,31 @@ dispatch เป็นฟังก์ชันที่ไว้ใช้บอ�
 
 แต่ทั้งนี้ทั้งนั้น สุดท้ายแล้ว component ชั้นนอกสุด (Root component หรือบางคนจะใช้ App component) ก็ต้องจัดแจง store ให้กับทั้งแอพครับ ไม่งั้น container ก็ไม่รู้ว่าจะเอา state จากไหนไป map ให้ โดยใน React Redux มี component ชื่อ Provider เป็นคนจัดการให้
 
-    import React from 'react'
-    import { render } from 'react-dom'
-    import { Provider } from 'react-redux'
-    import { createStore } from 'redux'
-    import todoApp from './reducers'
-    import App from './components/App'
+```javascript
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import todoApp from './reducers'
+import App from './components/App'
 
-    let store = createStore(todoApp)
+let store = createStore(todoApp)
 
-    render(
-      <Provider store={store}>
-        <App />
-      </Provider>,
-      document.getElementById('root')
-    )
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)
+```
 
 ## ขอภาพรวม?
 
 จัดไป
 
-![](https://cdn-images-1.medium.com/max/1600/1*6KJCCv9bezWXqkR6FSOcAg.png)ภาพรวมของ Redux (ฉบับเล็กสุดๆ)
+![](https://cdn-images-1.medium.com/max/1600/1*6KJCCv9bezWXqkR6FSOcAg.png)
+
+_ภาพรวมของ Redux (ฉบับเล็กสุดๆ)_
 
 ## จริงๆ Redux ไม่ได้ใช้ได้แค่กับ React เท่านั้นนะ
 

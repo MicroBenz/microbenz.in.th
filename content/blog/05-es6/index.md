@@ -28,23 +28,27 @@ ES6 ย่อมาจาก **ECMAScript 6** ครับ เป็นมาต
 
 เดิมเวลาเราประกาศตัวแปร เราจะใช้ var ใช่ไหมครับ ซึ่งมันก็มีประเด็นว่า ถ้าเราทำอะไรแบบนี้
 
-    // ES5
-    var x = 3;
-    if (x === 3) {
-        var y = 4;
-        console.log('This is y:', y); // This is y inside: 4
-    }
-    console.log('This is y outside:', y); // This is y outside: 4
+```javascript
+// ES5
+var x = 3
+if (x === 3) {
+  var y = 4
+  console.log('This is y:', y) // This is y inside: 4
+}
+console.log('This is y outside:', y) // This is y outside: 4
+```
 
 ตัวแปรมันจะเกิดทะลุออกมาข้างนอกบล็อก if (ซึ่งหลายคนเคยเจอแบบนี้แล้วช็อคกันไปหลายที) แต่ใน ES6 เรามี let ให้ท่านใช้แล้ว โดย let เป็นการประกาศตัวแปรโดย scope จะอยู่แค่ในบล็อกนั้นๆ
 
-    // ES6
-    let x = 3;
-    if (x === 3) {
-        let y = 4;
-        console.log('This is y:', y); // This is y inside: 4
-    }
-    console.log('This is y outside:', y); // This is y outside: undefined
+```javascript
+// ES6
+let x = 3
+if (x === 3) {
+  let y = 4
+  console.log('This is y:', y) // This is y inside: 4
+}
+console.log('This is y outside:', y) // This is y outside: undefined
+```
 
 ซึ่งหลายๆ code guideline แนะนำให้ใช้ let แทน var กันหมดแล้ว ถ้าได้เขียน ES6
 
@@ -52,14 +56,18 @@ ES6 ย่อมาจาก **ECMAScript 6** ครับ เป็นมาต
 
 ใน ES6 เราประกาศตัวแปร constant ที่เป็น Read-only แก้ค่าไม่ได้ได้แล้ว
 
-    // ES6
-    const PI = 3.141593;
+```javascript
+// ES6
+const PI = 3.141593
+```
 
 ทำให้อย่างฝั่ง Node.js เวลา require package อื่นๆ มาใช้ เราก็สามารถใช้ const ได้เลย
 
-    // ES6
-    const express = require('express');
-    const fs = require('fs');
+```javascript
+// ES6
+const express = require('express')
+const fs = require('fs')
+```
 
 > อ่อ พูดถึง Node.js ใน Node.js เวอร์ชันใหม่ๆ (6 เป็นต้นไป) รองรับ ES6 ไป 99% แล้วจ้า แบบไม่ต้องมีตัวแปลงใดๆ เขียนสดได้เลย
 
@@ -67,36 +75,40 @@ ES6 ย่อมาจาก **ECMAScript 6** ครับ เป็นมาต
 
 อีกสิ่งที่เปลี่ยนไปเยอะมากๆ คือใน ES6 นั้นเราสามารถประกาศฟังก์ชันโดยใช้ลูกศร => ได้แล้ว เราเรียกมันว่า **Arrow Function**
 
-    // ES5
-    var greeting = function (name) {
-        console.log('Hello ' + name);
-    }
+```javascript
+// ES5
+var greeting = function(name) {
+  console.log('Hello ' + name)
+}
 
-    var multiplyValue = function (a) {
-        return a * 2;
-    }
+var multiplyValue = function(a) {
+  return a * 2
+}
 
-    var add = function (a, b) {
-        return a + b;
-    }
+var add = function(a, b) {
+  return a + b
+}
 
-    var iHaveNoIdea = function (a, b) {
-        console.log('I have no idea what am I doing here');
-        return a * b;
-    }
+var iHaveNoIdea = function(a, b) {
+  console.log('I have no idea what am I doing here')
+  return a * b
+}
 
-    // ES6 Arrow Function
+// ES6 Arrow Function
 
-    var greeting = name => { console.log('Hello ' + name); }
+var greeting = name => {
+  console.log('Hello ' + name)
+}
 
-    var multiplyValue = a => a * 2
+var multiplyValue = a => a * 2
 
-    var add = (a, b) => a + b
+var add = (a, b) => a + b
 
-    var iHaveNoIdea = (a, b) => {
-        console.log('I have no idea what am I doing here');
-        return a * b;
-    }
+var iHaveNoIdea = (a, b) => {
+  console.log('I have no idea what am I doing here')
+  return a * b
+}
+```
 
 ซึ่ง Arrow Function นั้นมีจุดสังเกตคือ
 
@@ -107,20 +119,22 @@ ES6 ย่อมาจาก **ECMAScript 6** ครับ เป็นมาต
 
 จากแต่ก่อน
 
-    // ES5
-    var self = this;
-    this.nums.forEach(function (v) {
-        if (v % 5 === 0)
-            self.fives.push(v);
-    });
+```javascript
+// ES5
+var self = this
+this.nums.forEach(function(v) {
+  if (v % 5 === 0) self.fives.push(v)
+})
+```
 
 มาเป็น
 
-    // ES6
-    this.nums.forEach((v) => {
-        if (v % 5 === 0)
-            this.fives.push(v);
-    });
+```javascript
+// ES6
+this.nums.forEach(v => {
+  if (v % 5 === 0) this.fives.push(v)
+})
+```
 
 คงจะปวดหัวกับ scope this กันน้อยลงแล้ว
 
@@ -128,46 +142,57 @@ ES6 ย่อมาจาก **ECMAScript 6** ครับ เป็นมาต
 
 เลิกนั่งต่อสตริงได้แล้วครับ เพราะ ES6 มี **Template String** แล้ว
 
-    var name = "John", lastName = "Cena"
-    // ES5 String concat
-    console.log('My name is ' + name + ' ' + lastName + '.');
-    // ES6 Template String
-    console.log(`My name is ${name} ${lastName}.`);
+```javascript
+var name = 'John',
+  lastName = 'Cena'
+// ES5 String concat
+console.log('My name is ' + name + ' ' + lastName + '.')
+// ES6 Template String
+console.log(`My name is ${name} ${lastName}.`)
+```
 
 และ support multiline string ได้แล้วด้วย
 
-    `I can do this
+```javascript
+const str = `I can do this
     now.`
+```
 
 ## Default, Rest, Spread parameter
 
 นอกจากนี้ยังเพิ่มฟีเจอร์ที่เกี่ยวกับพารามิเตอร์ในฟังก์ชันอีกด้วย เริ่มกันที่ **Default Parameter** ที่เราสามารถใส่ค่า default value ให้กับพารามิเตอร์บางตัวได้ หากไม่มีการส่งค่ามาให้ ก็จะใช้ค่า default นั้นเลย ซึ่งถ้าเป็นแต่ก่อนเราต้องดัก undefined value เองแล้วมาเซ็ตค่าให้มัน
 
-    // ES6 Default Parameter
-    function addThreeValues(a, b = 2, c = 3) {
-        return a + b + c;
-    }
-    f(1) // 6
+```javascript
+// ES6 Default Parameter
+function addThreeValues(a, b = 2, c = 3) {
+  return a + b + c
+}
+f(1) // 6
+```
 
 ต่อมาคือ **Rest Parameter** ที่เราสามารถเขียนฟังก์ชันโดยหากมีการส่งพารามิเตอร์มาเกิน ก็จะรวมพารามิเตอร์ตัวที่เกินๆ เป็น array ก้อนเดียวให้
 
 ดูโค้ดจะเข้าใจง่ายกว่า
 
-    // ES6 Rest Parameter
-    function f(x, ...y) {
-       return x * y.length;
-    }
-    f(3, "hello", true, 2.2) // 9
-    // ฟังก์ชันด้านบน ตัวแปร y ในฟังก์ชันจะกลายเป็น ["hello", true, 2.2]
+```javascript
+// ES6 Rest Parameter
+function f(x, ...y) {
+  return x * y.length
+}
+f(3, 'hello', true, 2.2) // 9
+// ฟังก์ชันด้านบน ตัวแปร y ในฟังก์ชันจะกลายเป็น ["hello", true, 2.2]
+```
 
 ส่วนสุดท้ายคือ **Spread** ครับ จริงๆ แล้ว Spread นั้นเป็น Operator ที่เราสามารถแจกแจงสมาชิกของตัวแปรได้ เช่น ถ้าเป็น array ก็สามารถแจงสมาชิกของ array ออกมาได้ หรือถ้าเป็น string ก็แจกแจงอักขระแต่ละตัวได้
 
-    // ES6 Spread Operator
-    var params = [ "John Cena", true, 7 ]
-    var other = [1, 2, ...params] // [1, 2, "John Cena", true, 7]
+```javascript
+// ES6 Spread Operator
+var params = ['John Cena', true, 7]
+var other = [1, 2, ...params] // [1, 2, "John Cena", true, 7]
 
-    var str = "foo"
-    var chars = [ ...str ] // [ "f", "o", "o" ]
+var str = 'foo'
+var chars = [...str] // [ "f", "o", "o" ]
+```
 
 เรียกได้ Spread ช่วยให้เราลาขาดกับการวนลูปต่อ array หรือ split เอาอักขระแต่ละตัวจากสตริงมาได้เลย
 
@@ -175,24 +200,27 @@ ES6 ย่อมาจาก **ECMAScript 6** ครับ เป็นมาต
 
 อันนี้เท่ห์มากครับ (บางอันจะคล้าย Python พอตัว) เราสามารถ match ตัวแปรกับ array หรือ object เมื่อเรา assign ตัวแปรได้แล้วครับ
 
-    // ES6 List Matching
-    var [a, , b] = [1, 2, 3];
-    console.log(a); // 1
-    console.log(b); // 3
+```javascript
+// ES6 List Matching
+var [a, , b] = [1, 2, 3]
+console.log(a) // 1
+console.log(b) // 3
 
-    // ES6 Object Matching
-    var coordinate = {
-        lat: 13.23456,
-        lng: 153.12307,
-        x: 200,
-        y: 117
-    }
-    var { lat, lng } = coordinate;
-    console.log(lat) // 13.23456
-    console.log(lng) // 153.12307
+// ES6 Object Matching
+var coordinate = {
+  lat: 13.23456,
+  lng: 153.12307,
+  x: 200,
+  y: 117,
+}
+var { lat, lng } = coordinate
+console.log(lat) // 13.23456
+console.log(lng) // 153.12307
+```
 
 หรือบางที key ที่เราอยากจะ match อยู่ลึก หรือไม่อยากจะใช้ชื่อนั้นๆ เพราะไม่สื่อความ เราสามารถ reassign ชื่อตัวแปรให้ได้เลย
 
+```javascript
     var busPixelLocation = {
         x: 200,
         y: 117,
@@ -206,66 +234,75 @@ ES6 ย่อมาจาก **ECMAScript 6** ครับ เป็นมาต
     console.log(busYLocation); // 117
     console.log(busLat); // 13.23456
     console.log(busLng); // 153.12307
+```
 
 หรือถ้ากันพลาดว่ามันจะระเบิด เราก็ assign default ให้ได้
 
-    // Fail-soft destructuring
-    var [a] = [];
-    console.log(a) // undefined
+```javascript
+// Fail-soft destructuring
+var [a] = []
+console.log(a) // undefined
 
-    // Fail-soft destructuring with default
-    var [a = 1] = [];
-    console.log(a) // 1
+// Fail-soft destructuring with default
+var [a = 1] = []
+console.log(a) // 1
+```
 
 และด้วยความที่เราทำ Object Destructuring ได้ ทำให้ในการเขียนฟังก์ชันเราก็ใช้ท่านี้ได้เหมือนกัน
 
-    function logLocation({ lat, lng }) {
-        console.log(lat, lng);
-    }
-    logLocation({
-       lat: 13.23456,
-       lng: 121.22471,
-       locationName: 'Siam'
-    })
-    // 13,23456, 121.22471
+```javascript
+function logLocation({ lat, lng }) {
+  console.log(lat, lng)
+}
+logLocation({
+  lat: 13.23456,
+  lng: 121.22471,
+  locationName: 'Siam',
+})
+// 13,23456, 121.22471
+```
 
 ## ES6 Modules
 
 จากแต่ก่อนเวลาเราจะใช้ modules อื่นๆ จะเขียนมาในแบบของ AMD หรือ CommonJS modules กันให้เรา require() ไปใช้ได้ แต่ใน ES6 เรามี syntax เกี่ยวกับการเขียนและเรียกใช้ module ใหม่หมดเลย โดยมี keyword คือ **export** กับ **import**
 
-    // lib/math.js
-    export function sum(x, y) {
-        return x + y;
-    }
-    export const PI = 3.141593;
+```javascript
+// lib/math.js
+export function sum(x, y) {
+  return x + y
+}
+export const PI = 3.141593
 
-    // app.js
-    import * as math from 'lib/math';
-    console.log(`PI + 5 = ${math.sum(math.PI, 5)}`);
+// app.js
+import * as math from 'lib/math'
+console.log(`PI + 5 = ${math.sum(math.PI, 5)}`)
 
-    //anotherApp.js
-    import { sum, PI } from 'lib/math';
-    console.log(`PI + 5 = ${sum(PI, 5)}`);
+//anotherApp.js
+import { sum, PI } from 'lib/math'
+console.log(`PI + 5 = ${sum(PI, 5)}`)
+```
 
 หรือเราจะ export ออกเป็น **default** ที่จะไม่มีการบังคับใช้ชื่อตัวแปรหรือฟังก์ชันนั้นในการเรียกแต่อย่างใด จะตั้งชื่ออะไรอยู่ที่คนเรียก
 
-    // lib/mathplusplus.js
-    export * from "lib/math"; // Export อันเดิมออกไปอีกครั้ง
-    export const e = 2.71828182846;
-    export default function(x) {
-        return Math.log(x);
-    }
+```javascript
+// lib/mathplusplus.js
+export * from 'lib/math' // Export อันเดิมออกไปอีกครั้ง
+export const e = 2.71828182846
+export default function(x) {
+  return Math.log(x)
+}
 
-    // app.js
-    import ln, { sum, PI, e } from 'lib/mathplusplus';
-    console.log(`PI + log of e = ${sum(ln(e), PI)}`);
+// app.js
+import ln, { sum, PI, e } from 'lib/mathplusplus'
+console.log(`PI + log of e = ${sum(ln(e), PI)}`)
+```
 
 ## มีอีกเยอะ
 
 อันนี้ยกมาเฉพาะอันเด่นๆ ครับ จริงๆ มีอีกเยอะแยะมากให้ไปสำรวจครับ ตามไปดูได้เลยที่สองลิ้งค์นี้ครับ (โค้ดตัวอย่างบางส่วนผมก็มาจากอันนี้แหละ)
-[**lukehoban/es6features**
 
-*es6features - Overview of ECMAScript 6 features*github.com](https://github.com/lukehoban/es6features "https://github.com/lukehoban/es6features")[](https://github.com/lukehoban/es6features)[**ECMAScript 6: New Features: Overview and Comparison**
+- [es6features - Overview of ECMAScript 6 features](https://github.com/lukehoban/es6features)
 
-*Support for constants (also known as "immutable variables"), i.e., variables which cannot be re-assigned new content…*es6-features.org](http://es6-features.org/ "http://es6-features.org/")[](http://es6-features.org/)
+- [ES6 Features](http://es6-features.org)
+
 สำหรับการแนะนำ ES6 ของผมก็หมดลงแต่เพียงเท่านี้ครับ #มาเขียนES6กันเถอะ
