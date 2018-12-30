@@ -1,11 +1,3 @@
-# gatsby-starter-blog
-Gatsby starter for creating a blog
+# microbenz.in.th
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-
-`gatsby new gatsby-blog https://github.com/gatsbyjs/gatsby-starter-blog`
-
-Or [view the live demo here](https://gatsby-starter-blog-demo.netlify.com/).
-
-## Running in development
-`gatsby develop`
+My personal blog powered by [Gatsby](https://www.gatsbyjs.org/) and hosted on [Firebase Hosting](https://firebase.google.com/docs/hosting/)!
