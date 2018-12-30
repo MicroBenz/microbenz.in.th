@@ -3,12 +3,11 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2
-general:
-  branches:
-    only:
-      - master
+
 jobs:
   build:
+    branches:
+      only: master
     docker:
       # specify the version you desire here
       - image: circleci/node:10.14.2
