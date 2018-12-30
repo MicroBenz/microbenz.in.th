@@ -3,7 +3,7 @@ module.exports = {
     title: 'เบนซ์เขียนบล็อกนะจ๊ะ - MicroBenz',
     author: 'Tananan Tangthanachaikul',
     description: 'เบนซ์เขียนบล็อกนะจ๊ะ',
-    siteUrl: 'https://microbenz.in.th/',
+    siteUrl: 'https://microbenz.in.th',
     social: {
       twitter: 'microbenz',
       medium: 'microbenz',

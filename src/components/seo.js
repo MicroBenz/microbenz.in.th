@@ -43,7 +43,7 @@ function SEO({
               ...(img
                 ? {
                     property: 'og:image',
-                    content: img,
+                    content: `${data.site.siteMetadata.siteUrl}${img}`,
                   }
                 : {}),
               {
