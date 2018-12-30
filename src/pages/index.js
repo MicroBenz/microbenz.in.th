@@ -3,7 +3,6 @@ import { Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
-import Bio from '../components/bio'
 import Layout from '../components/Layout/Layout'
 import SEO from '../components/seo'
 
@@ -41,10 +40,6 @@ const BlogLink = styled(Link)`
   box-shadow: none;
 `
 
-const DateText = styled.small`
-  color: #000;
-`
-
 const BlogTitle = styled.h3`
   margin-bottom: 8px !important;
 `
@@ -70,17 +65,9 @@ class BlogIndex extends React.Component {
                 {node.frontmatter.featuredImage && (
                   <BlogImage>
                     <Img
-                      // src={
-                      //   node.frontmatter.featuredImage.childImageSharp.fluid.src
-                      // }
-                      // srcSet={
-                      //   node.frontmatter.featuredImage.childImageSharp.fluid
-                      //     .srcSet
-                      // }
                       fluid={
                         node.frontmatter.featuredImage.childImageSharp.fluid
                       }
-                      // sizes={node.frontmatter.featuredImage.childImageSharp.sizes}
                     />
                   </BlogImage>
                 )}
@@ -89,13 +76,12 @@ class BlogIndex extends React.Component {
                   {tags.length > 0 && (
                     <div>
                       {tags.map(tag => (
-                        // <Link to={`/tags/${tag}`}>
-                        <Tag className="tag is-info">{tag}</Tag>
-                        // </Link>
+                        <Tag className="tag is-info" key={tag}>
+                          {tag}
+                        </Tag>
                       ))}
                     </div>
                   )}
-                  {/* <p dangerouslySetInnerHTML={{ __html: node.excerpt }} /> */}
                 </ContentContainer>
               </BlogContainer>
             </BlogLink>

@@ -1,3 +1,5 @@
+const env = process.env.NODE_ENV || 'development'
+
 module.exports = {
   siteMetadata: {
     title: 'เบนซ์เขียนบล็อกนะจ๊ะ - MicroBenz',
@@ -58,7 +60,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-76883236-2`,
+        trackingId: env === 'development' ? '' : `UA-76883236-2`,
       },
     },
     `gatsby-plugin-feed`,
