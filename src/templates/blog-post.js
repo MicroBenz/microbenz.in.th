@@ -2,10 +2,18 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import rehypeReact from 'rehype-react'
+
+import Test from './test'
 
 import Bio from '../components/bio'
 import Layout from '../components/Layout/Layout'
 import SEO from '../components/seo'
+
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+  components: { test: Test },
+}).Compiler
 
 const FeaturedImage = styled(Img)`
   margin-bottom: 1.5rem;
@@ -37,10 +45,7 @@ class BlogPostTemplate extends React.Component {
           sizes={post.frontmatter.featuredImage.childImageSharp.sizes}
         />
         {/* <Bio date={post.frontmatter.date} /> */}
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
+        <div className="content">{renderAst(post.htmlAst)}</div>
         <hr style={{}} />
 
         <ViewMoreSection>
@@ -77,7 +82,7 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      html
+      htmlAst
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
