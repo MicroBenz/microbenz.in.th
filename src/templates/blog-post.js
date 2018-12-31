@@ -4,15 +4,12 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import rehypeReact from 'rehype-react'
 
-import Test from './test'
-
-import Bio from '../components/bio'
 import Layout from '../components/Layout/Layout'
 import SEO from '../components/seo'
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
-  components: { test: Test },
+  // components: { test: Test },
 }).Compiler
 
 const FeaturedImage = styled(Img)`
