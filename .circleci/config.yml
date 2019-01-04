@@ -12,7 +12,6 @@ jobs:
       # specify the version you desire here
       - image: circleci/node:10.14.2
     working_directory: ~/repo
-    parallelism: 2
     steps:
       - checkout
 
@@ -30,7 +29,6 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-            - public
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
