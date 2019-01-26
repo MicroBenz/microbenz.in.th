@@ -1,20 +1,32 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
 
 import Layout from '../components/Layout/Layout'
+import TagCover from '../components/TagCover'
+import BlogCard from '../components/Card/BlogCard'
+
+const TagContainer = styled.div`
+  padding: 36px 0;
+`
 
 const Tags = props => {
   const { pageContext, data } = props
   const { tag } = pageContext
-  const { edges, totalCount } = data.allMarkdownRemark
-  console.log(props)
+  const { edges } = data.allMarkdownRemark
   return (
     <Layout location={props.location}>
-      <p>Tag: {tag}</p>
-      {edges.map(edge => {
-        const { slug, title } = edge.node.frontmatter
-        return <Link to={`/${slug}`}>{title}</Link>
-      })}
+      <TagCover tag={tag} />
+      <TagContainer>
+        {edges.map(edge => {
+          const { slug, title } = edge.node.frontmatter
+          return (
+            <Link to={`/${slug}`} key={slug}>
+              <BlogCard data={edge.node} />
+            </Link>
+          )
+        })}
+      </TagContainer>
     </Layout>
   )
 }
@@ -34,6 +46,14 @@ export const pageQuery = graphql`
           frontmatter {
             title
             slug
+            tags
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 300, quality: 80) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

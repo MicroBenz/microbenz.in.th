@@ -3,7 +3,7 @@ title: ลองใช้ styled-components สิ…แล้วคุณจะ
 date: '2017-08-26T10:00:00.000Z'
 slug: ลองใช้-styled-components-สิ-แล้วคุณจะลืมการเขียน-css-แบบเดิมๆ-ไปเลย-e310f5c7cf33
 featuredImage: './cover.jpg'
-tags: ['developer', 'javascript']
+tags: ['developer', 'javascript', 'react']
 ---
 
 ผมเชื่อว่าหลายๆ คนที่เริ่มมาเขียน React จะพบกับความปวดหัวในเรื่องของการทำ styling พอสมควร เพราะถ้าเอาด้วยตัว React เพียวๆ นั้นคุณจะพบว่าคุณจะต้องทำ styling ด้วย CSS-in-JS แบบนี้
