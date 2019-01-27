@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
+
 import Layout from '../components/Layout/Layout'
+import kebabCase from '../utils/kebab-case'
 
 const TagPage = props => {
   const { data } = props
@@ -11,7 +13,7 @@ const TagPage = props => {
     <Layout location={props.location}>
       <p>Tag Index</p>
       {tags.map(tag => (
-        <Link to={`/tags/${tag}`}>{tag}</Link>
+        <Link to={`/tags/${kebabCase(tag)}`}>{tag}</Link>
       ))}
     </Layout>
   )

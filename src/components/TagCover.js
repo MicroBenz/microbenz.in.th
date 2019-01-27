@@ -11,10 +11,9 @@ const FixWidthContainer = styled.div`
   margin-right: -50vw;
 `
 const Container = styled(FixWidthContainer)`
-
   margin-top: -20px;
   height: 280px;
-  background: url('${withPrefix('/images/tags/test.jpg')}');
+  background: url('${props => withPrefix(`/images/tags/${props.img}`)}');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -57,51 +56,52 @@ const InnerContainer = styled.div`
 `
 
 const tagMapping = {
-  javascript: {
+  JavaScript: {
     title: 'JavaScript',
     description: 'NaN is a number',
   },
-  developer: {
-    title: 'Developer',
+  Coding: {
+    title: 'Coding',
     description: 'นอกจากอาชีพเราคือสร้างโค้ด เรายังเป็นนักสร้างบั๊คด้วย',
   },
-  'year-in-review': {
+  'Year in Review': {
     title: 'Year in Review',
     description: '',
   },
-  react: {
+  React: {
     title: 'React',
     description: '<AwesomeReactContent {...here} />',
+    image: 'react.png',
   },
-  graduation: {
+  Graduation: {
     title: 'Graduation',
     description: '',
   },
-  'life-lesson': {
+  'Life Lesson': {
     title: 'Life Lesson',
     description: 'ขีวิตคือการวิ่งมาราธอน ระยะทางสำคัญกว่าความเร็ว',
   },
-  product: {
+  Product: {
     title: 'Product',
     description: '(นานๆ คงเข็นคอนเทนท์จากแท็กนี้ออกมาได้นะ 555)',
   },
-  reading: {
+  Reading: {
     title: 'Reading',
     description: 'มาอ่านหนังสือกันเกินวันละ 8 บรรทัดกันเถอะครับ',
   },
-  review: {
+  Review: {
     title: 'Review',
     description: 'รีวิวทุกสรรสิ่ง หนัง เกม หนังสือ มือถือ',
   },
-  'self-improvement': {
+  'Self Improvement': {
     title: 'Self Improvement',
     description: 'Being Better เป็น mindset ที่ควรมีถ้าหากเราอยากเติบโตขึ้น',
   },
-  'university-life': {
+  'University Life': {
     title: 'University Life',
     description: '4 ปีในมหาลัยมันสั้นจริงๆ',
   },
-  ywc: {
+  YWC: {
     title: 'YWC',
     description: '#YWCIsEverywhere',
   },
@@ -109,9 +109,14 @@ const tagMapping = {
 
 const TagCover = props => {
   const { tag } = props
-  const tagContent = tagMapping[tag] || { title: tag, description: '' }
+  const tagContent = tagMapping[tag] || {
+    title: tag,
+    description: '',
+    image: 'test.jpg',
+  }
+  console.log(tagContent, tag)
   return (
-    <Container>
+    <Container img={tagContent.image}>
       <BlackOverlay>
         <InnerContainer>
           <TagTitle className="title is-3">{tagContent.title}</TagTitle>

@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
+import kebabCase from '../../utils/kebab-case'
+
 const BlogLink = styled(Link)`
   box-shadow: none;
 `
@@ -56,7 +58,7 @@ const BlogCard = props => {
           {tags.length > 0 && (
             <div>
               {tags.map(tag => (
-                <Link key={tag} to={`/tags/${tag}`}>
+                <Link key={tag} to={`/tags/${kebabCase(tag)}`}>
                   <Tag className="tag is-info">{tag}</Tag>
                 </Link>
               ))}

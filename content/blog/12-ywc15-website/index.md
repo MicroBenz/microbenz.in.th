@@ -3,7 +3,7 @@ title: 391 Commits = YWC#15 Website
 date: '2017-12-04T10:00:00.000Z'
 slug: 391-commits-ywc-15-website-4dc7c745e9ca
 featuredImage: './cover.png'
-tags: ['ywc', 'developer', 'javascript']
+tags: ['YWC', 'Coding', 'JavaScript']
 ---
 
 ในท้ายสุดเว็บไซต์ของค่าย YWC#15 ก็เดินทางมาถึงจุดหมายสุดท้ายแล้ว เพราะเพิ่งประกาศผลผู้ผ่านการคัดเลือกค่ายเมื่อสองวันก่อนนี้เอง

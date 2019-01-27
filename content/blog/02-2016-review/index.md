@@ -3,7 +3,7 @@ title: 2016 Recap — ย้อนอดีต ปีนี้ทำอะไร
 date: '2016-12-29T10:00:00.000Z'
 slug: 2016-recap-ย้อนอดีต-ปีนี้ทำอะไรไปบ้าง-d7be4bb40ea7
 featuredImage: './cover.png'
-tags: ['year-in-review']
+tags: ['Year in Review']
 ---
 
 เป็นธรรมเนียมทุกปี ที่สิ้นปีเราจะมา recap ย้อนกันว่าปีนี้ได้ทำอะไรไปบ้าง ได้เจอะเจออะไรบ้าง

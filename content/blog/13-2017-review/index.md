@@ -3,7 +3,7 @@ title: '#เบนซ์นะจ๊ะในปี2017'
 date: '2017-12-21T10:00:00.000Z'
 slug: เบนซ์นะจ๊ะในปี2017-9c0fcdae331f
 featuredImage: './cover.png'
-tags: ['year-in-review']
+tags: ['Year in Review']
 ---
 
 > เติบโต, เรียนรู้ และก้าวผ่าน

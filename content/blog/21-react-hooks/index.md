@@ -3,7 +3,7 @@ title: 'ทำความรู้จักกับ Hooks ของ React: ฟ
 date: '2019-01-04T15:00:00.000Z'
 slug: react-hooks-101
 featuredImage: './cover.png'
-tags: ['javascript', 'developer', 'react']
+tags: ['JavaScript', 'Coding', 'React']
 ---
 
 เมื่อสิ้นปีที่ผ่านมา คนที่เขียน React หลายคนคงเคยได้ยินเรื่องราวของ **hooks** ฟีเจอร์ใหม่ที่กำลังจะมาในอนาคตอยู่บ้าง วันนี้ก็เลยเอามาเล่าให้ฟังกันว่ามันคืออะไร แล้วทำไมคนถึง hype ฟีเจอร์นี้กันหนักหนา

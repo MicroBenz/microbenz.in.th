@@ -3,7 +3,7 @@ title: '#เบนซ์นะจ๊ะในปี2018'
 date: '2018-12-24T18:36:00.000Z'
 slug: เบนซ์นะจ๊ะในปี2018
 featuredImage: './cover.jpg'
-tags: ['year-in-review']
+tags: ['Year in Review']
 ---
 
 ปีนี้ Year in Review มาจะวันสุดท้ายของปีจริงๆ

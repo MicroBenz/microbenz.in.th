@@ -1,5 +1,6 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
+const kebabCase = require('./src/utils/kebab-case')
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -60,7 +61,7 @@ exports.createPages = ({ graphql, actions }) => {
         console.log(tags)
         tags.forEach(tag => {
           createPage({
-            path: `/tags/${tag}/`,
+            path: `/tags/${kebabCase(tag)}/`,
             component: tagPost,
             context: {
               tag,
