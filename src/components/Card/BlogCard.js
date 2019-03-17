@@ -12,7 +12,7 @@ const BlogLink = styled(Link)`
 const BlogContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: 16px;
+  margin-bottom: 32px;
   @media (max-width: 600px) {
     flex-direction: column;
   }

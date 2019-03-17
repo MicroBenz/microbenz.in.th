@@ -2,67 +2,73 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { withPrefix } from 'gatsby'
 
-const FixWidthContainer = styled.div`
+const CoverContainer = styled.div`
   position: relative;
-  left: 50%;
-  right: 50%;
-  width: 100vw;
-  margin-left: -50vw;
-  margin-right: -50vw;
-`
-const Container = styled(FixWidthContainer)`
-  margin-top: -20px;
-  height: 280px;
-  background: url('${props => withPrefix(`/images/tags/${props.img}`)}');
-  background-size: cover;
+  margin: -20px -20px -20px;
+  background-image: url('${props => props.image}');
   background-position: center center;
-  background-repeat: no-repeat;
+  background-size: cover;
+  height: 360px;
+  @media (max-width: 768px) {
+    height: 280px;
+    background-image: url('${props => props.mobileImage}');
+  }
 `
 
-const TagTitle = styled.h2`
-  color: white !important;
-  margin-bottom: 0.5rem !important;
-`
-
-const TagContent = styled.p`
-  color: white !important;
-`
-
-const BlackOverlay = styled(FixWidthContainer)`
+const BlackOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   height: 100%;
   background: linear-gradient(
     rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.3) 14%,
-    rgba(0, 0, 0, 0.43) 28%,
+    rgba(0, 0, 0, 0.3) 53%,
+    rgba(0, 0, 0, 0.43) 71%,
     rgba(0, 0, 0, 0.6)
   );
 `
 
-const InnerContainer = styled.div`
+const CoverImage = styled.img`
+  display: block;
+  width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding-bottom: 20px;
-  @media (min-width: 1201px) {
-    max-width: 960px;
-    width: 960px;
-    margin: 0 auto;
+  object-fit: cover;
+`
+
+const TitleContainer = styled.div`
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 0 20px;
+`
+
+const TagTitle = styled.h1`
+  color: #ffffff !important;
+  margin-bottom: 0.25rem !important;
+  @media (max-width: 768px) {
+    margin-bottom: 0.25rem !important;
   }
-  @media (max-width: 1200px) {
-    padding: 0 5% 20px;
-  }
+`
+
+const TagDescription = styled.p`
+  color: #ffffff !important;
 `
 
 const tagMapping = {
   JavaScript: {
     title: 'JavaScript',
     description: 'NaN is a number',
+    image: 'javascript.png',
+    mobileImage: 'mobile/javascript.png',
   },
   Coding: {
     title: 'Coding',
     description: 'นอกจากอาชีพเราคือสร้างโค้ด เรายังเป็นนักสร้างบั๊คด้วย',
+    image: 'coding.jpg',
   },
   'Year in Review': {
     title: 'Year in Review',
@@ -72,6 +78,7 @@ const tagMapping = {
     title: 'React',
     description: '<AwesomeReactContent {...here} />',
     image: 'react.png',
+    mobileImage: 'react.png',
   },
   Graduation: {
     title: 'Graduation',
@@ -109,23 +116,25 @@ const tagMapping = {
 
 const TagCover = props => {
   const { tag } = props
-  const tagContent = tagMapping[tag] || {
+  const tagContent = {
     title: tag,
     description: '',
     image: 'test.jpg',
+    mobileImage: 'test.jpg',
+    ...(tagMapping[tag] || {}),
   }
   console.log(tagContent, tag)
   return (
-    <Container img={tagContent.image}>
-      <BlackOverlay>
-        <InnerContainer>
-          <TagTitle className="title is-3">{tagContent.title}</TagTitle>
-          {tagContent.description.length > 0 && (
-            <TagContent>{tagContent.description}</TagContent>
-          )}
-        </InnerContainer>
-      </BlackOverlay>
-    </Container>
+    <CoverContainer
+      image={withPrefix(`/images/tags/${tagContent.image}`)}
+      mobileImage={withPrefix(`/images/tags/${tagContent.mobileImage}`)}
+    >
+      <TitleContainer>
+        <TagTitle className="title is-3">{tagContent.title}</TagTitle>
+        <TagDescription>{tagContent.description}</TagDescription>
+      </TitleContainer>
+      <BlackOverlay />
+    </CoverContainer>
   )
 }
 

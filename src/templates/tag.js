@@ -7,7 +7,7 @@ import TagCover from '../components/TagCover'
 import BlogCard from '../components/Card/BlogCard'
 
 const TagContainer = styled.div`
-  padding: 36px 0;
+  padding: 56px 0;
 `
 
 const Tags = props => {
