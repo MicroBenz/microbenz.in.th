@@ -32,7 +32,6 @@ exports.createPages = ({ graphql, actions }) => {
         `
       ).then(result => {
         if (result.errors) {
-          console.log(result.errors)
           reject(result.errors)
         }
 
@@ -58,7 +57,6 @@ exports.createPages = ({ graphql, actions }) => {
           const toAppendTags = postTags.filter(tag => !uniqTagArr.includes(tag))
           return [...uniqTagArr, ...toAppendTags]
         }, [])
-        console.log(tags)
         tags.forEach(tag => {
           createPage({
             path: `/tags/${kebabCase(tag)}/`,

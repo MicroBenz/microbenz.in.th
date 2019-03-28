@@ -1,10 +1,10 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
+import React, { Fragment } from 'react'
+import styled from 'styled-components'
 import { withPrefix } from 'gatsby'
 
 const CoverContainer = styled.div`
   position: relative;
-  margin: -20px -20px -20px;
+  margin: -20px -20px 28px -20px;
   background-image: url('${props => props.image}');
   background-position: center center;
   background-size: cover;
@@ -47,11 +47,14 @@ const TitleContainer = styled.div`
 `
 
 const TagTitle = styled.h1`
-  color: #ffffff !important;
   margin-bottom: 0.25rem !important;
   @media (max-width: 768px) {
     margin-bottom: 0.25rem !important;
   }
+`
+
+const TagTitleWithImage = styled(TagTitle)`
+  color: #ffffff !important;
 `
 
 const TagDescription = styled.p`
@@ -62,27 +65,30 @@ const tagMapping = {
   JavaScript: {
     title: 'JavaScript',
     description: 'NaN is a number',
-    image: 'javascript.png',
+    image: 'desktop/javascript.png',
     mobileImage: 'mobile/javascript.png',
   },
   Coding: {
     title: 'Coding',
     description: 'นอกจากอาชีพเราคือสร้างโค้ด เรายังเป็นนักสร้างบั๊คด้วย',
-    image: 'coding.jpg',
+    image: 'desktop/coding.jpg',
+    mobileImage: 'mobile/coding.jpg',
   },
   'Year in Review': {
     title: 'Year in Review',
-    description: '',
+    description: 'For self reflection',
+    image: 'desktop/year-in-review.jpg',
+    mobileImage: 'mobile/year-in-review.jpg',
   },
   React: {
     title: 'React',
     description: '<AwesomeReactContent {...here} />',
-    image: 'react.png',
-    mobileImage: 'react.png',
+    image: 'desktop/react.png',
+    mobileImage: 'mobile/react.png',
   },
   Graduation: {
     title: 'Graduation',
-    description: '',
+    description: 'One milestone of life.',
   },
   'Life Lesson': {
     title: 'Life Lesson',
@@ -98,7 +104,7 @@ const tagMapping = {
   },
   Review: {
     title: 'Review',
-    description: 'รีวิวทุกสรรสิ่ง หนัง เกม หนังสือ มือถือ',
+    description: 'รีวิวทุกสรรพสิ่ง หนัง เกม หนังสือ มือถือ',
   },
   'Self Improvement': {
     title: 'Self Improvement',
@@ -110,7 +116,9 @@ const tagMapping = {
   },
   YWC: {
     title: 'YWC',
-    description: '#YWCIsEverywhere',
+    description: '#ywceverywhere',
+    image: 'desktop/ywc.jpg',
+    mobileImage: 'mobile/ywc.jpg',
   },
 }
 
@@ -119,18 +127,25 @@ const TagCover = props => {
   const tagContent = {
     title: tag,
     description: '',
-    image: 'test.jpg',
-    mobileImage: 'test.jpg',
     ...(tagMapping[tag] || {}),
   }
-  console.log(tagContent, tag)
+  if (!tagContent.image || !tagContent.mobileImage) {
+    return (
+      <Fragment>
+        <TagTitle className="title is-3">{tagContent.title}</TagTitle>
+        <p>{tagContent.description}</p>
+      </Fragment>
+    )
+  }
   return (
     <CoverContainer
       image={withPrefix(`/images/tags/${tagContent.image}`)}
       mobileImage={withPrefix(`/images/tags/${tagContent.mobileImage}`)}
     >
       <TitleContainer>
-        <TagTitle className="title is-3">{tagContent.title}</TagTitle>
+        <TagTitleWithImage className="title is-3">
+          {tagContent.title}
+        </TagTitleWithImage>
         <TagDescription>{tagContent.description}</TagDescription>
       </TitleContainer>
       <BlackOverlay />
