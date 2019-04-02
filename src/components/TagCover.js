@@ -120,6 +120,12 @@ const tagMapping = {
     image: 'desktop/ywc.jpg',
     mobileImage: 'mobile/ywc.jpg',
   },
+  'Web Performance': {
+    title: 'Web Performance',
+    description: 'ทำเว็บให้เร็วขึ้น ไม่ยากกว่าที่คิด',
+    image: 'desktop/webperf.png',
+    mobileImage: 'mobile/webperf.png',
+  },
 }
 
 const TagCover = props => {

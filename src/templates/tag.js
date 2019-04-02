@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Layout from '../components/Layout/Layout'
 import TagCover from '../components/TagCover'
 import BlogCard from '../components/Card/BlogCard'
+import SEO from '../components/seo'
 
 const TagContainer = styled.div`
   padding: 16px 0;
@@ -16,6 +17,7 @@ const Tags = props => {
   const { edges } = data.allMarkdownRemark
   return (
     <Layout location={props.location}>
+      <SEO title={`${tag}`} />
       <TagCover tag={tag} />
       <TagContainer>
         {edges.map(edge => {
