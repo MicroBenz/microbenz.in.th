@@ -46,6 +46,18 @@ function SEO({
                     content: `${data.site.siteMetadata.siteUrl}${img}`,
                   }
                 : {}),
+              ...(img
+                ? {
+                    property: 'og:image:width',
+                    content: 1400,
+                  }
+                : {}),
+              ...(img
+                ? {
+                    property: 'og:image:height',
+                    content: 751,
+                  }
+                : {}),
               {
                 property: 'og:type',
                 content: 'website',
