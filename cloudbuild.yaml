@@ -5,3 +5,4 @@ steps:
     args: ['build']
   - name: 'gcr.io/$PROJECT_ID/firebase'
     args: ['deploy', '--only', 'hosting', '--token', '$_FIREBASE_TOKEN']
+timeout: 1200s
