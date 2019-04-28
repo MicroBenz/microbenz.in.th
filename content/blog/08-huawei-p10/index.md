@@ -134,47 +134,39 @@ _มีโหมด Pro ด้วย_
 
 เอาล่ะ แต่ผมจะไม่พูดพร่ำทำเพลงอะไรเยอะละ…เอารูปไปดูกันเถอะ (จะบอกว่ารูปทั้งหมดนี้ จบที่การกดแชะครั้งเดียวจริงๆ ไม่มีการแต่งเพิ่มใดๆ ทั้งนั้น)
 
-![](https://cdn-images-1.medium.com/max/800/1*782CjArZweYv-5IojOUdQw.jpeg)
-![](https://cdn-images-1.medium.com/max/800/1*ptnKOTci1pbol8vcuUx8SQ.jpeg)
-![](https://cdn-images-1.medium.com/max/800/1*4UijABRPaO7sIJfRdRgtuA.jpeg)
-![](https://cdn-images-1.medium.com/max/1200/1*8CKPHpTxDdywbtxFaxheUA.jpeg)
-![](https://cdn-images-1.medium.com/max/1200/1*cYfshL0bTi0hjbrKvOJAzA.jpeg)Selfie กับกล้องหน้า
-![](https://cdn-images-1.medium.com/max/1200/1*8WWOo-WSceKPFutqtmzusA.jpeg)
-![](https://cdn-images-1.medium.com/max/800/1*iUGdcLe54yg52RmCE8MhYw.jpeg)
-![](https://cdn-images-1.medium.com/max/800/1*A7wsMaGF56lxb1Q3ZyYNHQ.jpeg)กล้องหลัง Portrait Mode
-![](https://cdn-images-1.medium.com/max/800/1*b0L3QkSP5ZBWMs6zLxsALA.jpeg)
-![](https://cdn-images-1.medium.com/max/800/1*PdwlNyGYw576IpvTeZ9LMA.jpeg)
-![](https://cdn-images-1.medium.com/max/1200/1*RWT8VtigysFyx9pAkgotHA.jpeg)
-![](https://cdn-images-1.medium.com/max/1600/1*tLqVn9V_Vmf6DG4t5Nitgg.jpeg)
-![](https://cdn-images-1.medium.com/max/800/1*faGdiRQvH40JIMbKX3RM7w.jpeg)Monochrome อันนี้ผมชอบมากๆ มีฟีลลิ่งย้อนเวลา
-![](https://cdn-images-1.medium.com/max/1200/1*SOmM9YCE0OAQ-e66NSLiWw.jpeg)
-![](https://cdn-images-1.medium.com/max/1200/1*4LELPBr0QXih3C23XeoVyQ.jpeg)Monochrome ก็ถ่าย Portrait ได้
-![](https://cdn-images-1.medium.com/max/1200/1*qXFsChP8TJcBWgMK4zRuSQ.jpeg)
-![](https://cdn-images-1.medium.com/max/1200/1*nTuMnlj3uCNZgn7X0Fa1IA.jpeg)
-![](https://cdn-images-1.medium.com/max/1200/1*zTBmdCH9GFfGbJHilzx7Qg.jpeg)
-![](https://cdn-images-1.medium.com/max/1200/1*6k-4thU46IridBNZxmSb-Q.jpeg)
-![](https://cdn-images-1.medium.com/max/1200/1*5r8doYdyKOGhRNUBDqW99Q.jpeg)
-![](https://cdn-images-1.medium.com/max/1200/1*rnI7oJnGauMfYO4m1F4ISg.jpeg)
+![](./16.jpeg)
+![](./17.jpeg)
+![](./18.jpeg)
+![](./19.jpeg)
+![Selfie กับกล้องหน้า](./20.jpeg)
+![](./21.jpeg)
+![](./22.jpeg)
+![กล้องหลัง Portrait Mode](./23.jpeg)
+![](./24.jpeg)
+![](./25.jpeg)
+![](./26.jpeg)
+![](./27.jpeg)
+![Monochrome อันนี้ผมชอบมากๆ มีฟีลลิ่งย้อนเวลา](./28.jpeg)
+![](./29.jpeg)
+![Monochrome ก็ถ่าย Portrait ได้](./30.jpeg)
+![](./31.jpeg)
+![](./32.jpeg)
+![](./33.jpeg)
+![](./34.jpeg)
+![](./35.jpeg)
+![โซนของกินนนนนนน (ขออภัยสำหรับคนดูตอนดึกๆ 5555)](./36.jpeg)
 
-_โซนของกินนนนนนน (ขออภัยสำหรับคนดูตอนดึกๆ 5555)_
+![](./37.jpeg)
+![](./38.jpeg)
+![กล้องหลัง Portrait ถ่ายในร้านแมคสีลมตอนสี่ทุ่ม](./39.jpeg)
 
-![](https://cdn-images-1.medium.com/max/800/1*788x_5JauvRBkbjoEdrErw.jpeg)
-![](https://cdn-images-1.medium.com/max/800/1*GCAH7zwrPEExCF74YzXgbQ.jpeg)
-![](https://cdn-images-1.medium.com/max/800/1*rZZT84zKXITH9ZPnwohW3w.jpeg)
+![](./40.jpeg)
+![](./41.jpeg)
+![](./42.jpeg)
+![](./43.jpeg)
+![รูปเซ็ตนี้ถ่ายจาก”ในรถ” มีกระจกกั้นอยู่…](./44.jpeg)
 
-_กล้องหลัง Portrait ถ่ายในร้านแมคสีลมตอนสี่ทุ่ม_
-
-![](https://cdn-images-1.medium.com/max/800/1*tggA44EWr37zQ9jVnvVDeA.jpeg)
-![](https://cdn-images-1.medium.com/max/800/1*FapNys4YWUxiwtXbgzVgXg.jpeg)
-![](https://cdn-images-1.medium.com/max/800/1*uTY3eyLU93aoyBv_m6aQSA.jpeg)
-![](https://cdn-images-1.medium.com/max/1600/1*OeKJ8XXJ-w2QIQzpIedY1w.jpeg)
-![](https://cdn-images-1.medium.com/max/800/1*TMJEG5gyagKMh2K3WH33oQ.jpeg)
-
-_รูปเซ็ตนี้ถ่ายจาก”ในรถ” มีกระจกกั้นอยู่…_
-
-![](https://cdn-images-1.medium.com/max/1600/1*KJ3rFU4WUxsCBc7fviuOKQ.jpeg)
-
-_Night Mode ในโรงหนัง ถ่ายประมาณ 3 วิ (Night Mode ต้องหาขาตั้งกล้องมา ไม่งั้นไม่รอดจริงๆ)_
+![Night Mode ในโรงหนัง ถ่ายประมาณ 3 วิ (Night Mode ต้องหาขาตั้งกล้องมา ไม่งั้นไม่รอดจริงๆ)](./45.jpeg)
 
 ซึ่งในแง่มุมเรื่องกล้อง ได้ลองเอาไปเทียบกับตัวอื่นๆ อย่าง iPhone 7 Plus ที่น่าจะชกได้สมน้ำสมเนื้อหน่อย (จริงๆ เป็นคู่ที่ไม่ควรชก เพราะ 7 Plus F1.8 แต่ P10 F2.2) ก็ได้ข้อสรุปมาว่า ตัวกล้องของ P10 จะมีสีสดเว่อร์กว่าพอสมควร (โดยเฉพาะรูปแรก จานทรูสีแดงแป๊ดไหมละครับ 55) ส่วน iPhone สีจะดู real กว่า ส่วนเรื่องถ่ายในที่มืด ไม่ได้ลองเทสจริงจัง แต่เท่าที่อ่านจากข้างนอก iPhone จะแพ้พอสมควร
 
@@ -188,7 +180,7 @@ _Night Mode ในโรงหนัง ถ่ายประมาณ 3 วิ 
 
 สำหรับรีวิว P10 วันนี้คงจบลงแต่เท่านี้ครับ มีอะไรคอมเม้นมาได้เสมอครับผม :D
 
-![](https://cdn-images-1.medium.com/max/1600/1*Edn3a5dVqEOnR5BiPB518Q.jpeg)
+![](./46.jpeg)
 
 ปล.ราคาเครื่องเปล่าเป็นตามนี้นะครับ
 

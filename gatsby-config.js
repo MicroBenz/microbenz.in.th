@@ -32,6 +32,7 @@ module.exports = {
         ssr: true,
       },
     },
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -40,7 +41,8 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               withWebp: true,
-              quality: 80,
+              quality: 70,
+              showCaptions: false,
             },
           },
           {
@@ -63,7 +65,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-plugin-google-analytics`,
