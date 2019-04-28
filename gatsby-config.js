@@ -94,11 +94,11 @@ module.exports = {
     //     pathToConfigModule: 'src/utils/typography',
     //   },
     // },
-    {
-      resolve: 'gatsby-plugin-google-fonts',
-      options: {
-        fonts: ['Sarabun:400,500,700'],
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-google-fonts',
+    //   options: {
+    //     fonts: ['Sarabun:400,500,700'],
+    //   },
+    // },
   ],
 }
