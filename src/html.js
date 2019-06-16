@@ -19,9 +19,9 @@ export default class HTML extends React.Component {
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
           />
-          <link rel="preload" href={font} as="fetch" crossorigin="anonymous" />
+          <link rel="preload" href={font} as="fetch" crossOrigin="anonymous" />
           <script
             dangerouslySetInnerHTML={{
               __html: `

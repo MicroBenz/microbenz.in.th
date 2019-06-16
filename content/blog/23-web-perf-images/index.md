@@ -157,7 +157,7 @@ WebP **ยังไม่ support ในทุก browser**
 
 - **ใช้แท็ก `<picture>`**: Browser จะตัดสินใจเองว่าจะเลือก format ไหนมาแสดงผล ถ้า browser รองรับ WebP ก็จะแสดงผล WebP ถ้าไม่รองรับก็จะ fallback ไปใช้แบบอื่น
 
-```language-html
+```html
 <picture>
   <source srcset="/path/to/image.webp" type="image/webp">
   <img src="/path/to/image.jpg" alt="">

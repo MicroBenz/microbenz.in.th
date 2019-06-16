@@ -32,6 +32,7 @@ module.exports = {
         ssr: true,
       },
     },
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -40,7 +41,8 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               withWebp: true,
-              quality: 80,
+              quality: 70,
+              showCaptions: false,
             },
           },
           {
@@ -50,7 +52,7 @@ module.exports = {
             },
           },
           'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
+          // 'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
           {
             resolve: 'gatsby-remark-external-links',
@@ -62,8 +64,8 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-plugin-google-analytics`,
@@ -93,11 +95,11 @@ module.exports = {
     //     pathToConfigModule: 'src/utils/typography',
     //   },
     // },
-    {
-      resolve: 'gatsby-plugin-google-fonts',
-      options: {
-        fonts: ['Sarabun:400,500,700'],
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-google-fonts',
+    //   options: {
+    //     fonts: ['Sarabun:400,500,700'],
+    //   },
+    // },
   ],
 }
