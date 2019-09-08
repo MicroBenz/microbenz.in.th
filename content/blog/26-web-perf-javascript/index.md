@@ -115,7 +115,7 @@ tags: ['Coding', 'Web Performance']
 
 ![Compression Ratio](./12.png)
 
-แต่แลกกับการที่กระบวนการ compress จะกินเวลานานกว่า GZip มากโขพอสมควร
+แต่แลกกับการที่กระบวนการ compress จะกินเวลานานกว่า GZip มากโขพอสมควร (ถ้าอยากใช้ Brotli ก็จะแนะนำว่าให้ใช้วิธีการ compress ทิ้งไว้ก่อนเลย)
 
 ![Compress time](./13.png)
 
@@ -123,14 +123,94 @@ tags: ['Coding', 'Web Performance']
 
 โดยทั้ง GZip หรือ Brotli นั้นสามารถไปเปิดใช้ใน Nginx ได้เหมือนกันกับ HTTP/2
 
+**GZip**
 
-GZip
+![GZip](./14.png)
+
+**Brotli**
 
 ![Brotli](./15.png)
 
-Brotli
 
+## Code-splitting: อะไรยังไม่ใช้ เอาออกไปก่อน ค่อยโหลดตอนจะใช้
 
+หากเราลองคิดดูว่าในเว็บที่ทำด้วย JavaScript framework อย่างเช่น React, Vue, Angular เวลา build ไฟล์ออกมาจะประกอบด้วยอะไรบ้าง
+
+![ใน Modern Apps เดี๋ยวนี้ของข้างในมีเยอะมากๆ](./16.png)
+
+- **ตัว Front-end framework**: ในหลาายๆ framework เช่น React ที่เขียน runtime เองนั้นก็จะมีตัว runtime ซึ่งก็มีขนาดไม่เบาเลยทีเดียว
+- **State Management**: บางทีเราก็จะใช้ state management tools เช่น Redux, MobX ในการจัดการ state ของตัวแอพ โค้ดดังกล่าวก็จะอยู่ในตัว bundle ด้วย
+- **Polyfill**: บางฟีเจอร์ browser เก่าๆ ไม่มี ตัว polyfill จึงสำหรับไว้รองรับ browser เก่าๆ ที่ไม่มีฟีเจอร์นั้นๆ
+- **Library อื่นๆ**: เช่น Lodash ไว้จัดการ data, Moment.js ไว้จัดการวันเวลา
+- **ตัว apps**: แน่นอน ตัวแอพ ตัวโค้ดที่เราเขียนก็จะอยู่ใน bundle
+
+เราจะเห็นว่า มีของหลายอย่างรวมใน bundle เดียวกันเยอะมากๆ และยิ่งถ้าแอพเรามีหลายหน้า แอพก็จะใหญ่ขึ้น bundle size ก็จะใหญ่ขึ้น และเราลองคิดดีๆ ถ้าเราไม่ทำอะไรเลย เวลาโหลด JS มาใช้ มันก็จะโหลดทั้งแอพมา ทั้งๆ ที่ user อาจจะใช้แอพอยู่แค่หน้าเดียว แต่โค้ด JS ดันมีแอพทั้งหมดทุกหน้าเลย
+
+จึงมีไอเดียที่เรียกว่า **Code-splitting** โดยไอเดียก็คือ **อะไรยังไม่ใช้ เอาออกไปก่อน ค่อยโหลดตอนจะใช้**
+
+การประยุกต์ง่ายที่สุดก็คือ **หน้านั้นยังไม่ได้เข้านี่หว่า ก็โหลดที่หลังสิ**
+
+![](./17.png)
+
+โดยใช้ฟีเจอร์ [dynamic import](https://v8.dev/features/dynamic-import) ของ JavaScript เข้ามาช่วยในการโหลด module ที่ไว้ใช้ทีหลังแยกออกไป แทนที่เราจะใช้ static import (`import`) แบบปกติบนหัวไฟล์
+
+![](./25.png)
+
+เวลาเราเขียน JS ปกติ เราก็จะทำแบบด้านบน เราเขียน module ออกมาเพื่อ re-use logic ที่จะใช้บ่อยๆ เวลาเอามาใช้ เราก็ import มัน
+
+แต่ด้วยฟีเจอร์ dynamic import เราทำแบบนี้แทน
+
+![](./26.png)
+
+เราใช้การ `import()` แทน `import` แบบแรก เพื่อใช้ module ซึ่งตัว `import()` จะ return Promise ออกมา ทำให้เราจะใช้ `.then()` เพื่อนำ module ไปใช้ หรือจะเขียนเป็น `async await` ก็ได้เหมือนกัน
+
+ผลที่ได้ หากทำการใช้ dynamic import ตัว module คือ ตัว webpack หรือ module bundler ทั้งหลาย จะ split แยกโค้ดของที่ถูกทำ dynamic import ออกมาเป็น chunk อีกก้อนนึง ออกจาก module หลัก
+
+// หารูป compare 2 module
+
+## Code-splitting ใน framework อย่าง React
+
+ซึ่งอย่างใน React เอง library ทำ router เช่น react-router สามารถนำฟีเจอร์ dynamic import มาใช้คู่กัน เพื่อทำการ code-splitting ระดับ route ได้ พูดง่ายๆ ก็คือ path ไหนยังไม่ใช้ ก็จะยังไม่โหลด path ไหนเข้าไปแล้ว ถึงค่อยโหลด ซึ่งมีวิธีการทำสองวิธี
+
+1. ใช้ react-loadable (สำหรับ React <= 16.5)
+
+[react-loadable](https://github.com/jamiebuilds/react-loadable) เป็น library ที่ช่วยให้เราทำ code-splitting component ได้อย่างง่ายดายขึ้นมาก เพราะ API นั้นใช้งานง่ายมากๆ เพียงแค่ wrap ด้วย function ของตัว loadable แล้วนำมันไปใข้งานแบบ React component ได้เลย
+
+ในตัวอย่างโค้ด ปกติ react-router จะรับ props ชื่อ `component` เพื่อบอกว่าหาก path match จะ render component อะไร เราก็จะทำแบบนี้กัน
+
+![react-router ธรรมดา](./18.png)
+
+แต่ถ้าใช้ react-loadable แทนที่เราจะ `import` แบบปกติ เราใช้ dynamic import `import()` คู่กับตัว react-loadable เพื่อ import ตัว component ที่จะแสดงมาแทน
+
+![react-loadable](./19.png)
+
+แค่นี้เราก็จะได้การทำ code-splitting แบบง่ายที่สุด คือแยกตาม route ของแอพเรา (เรียกว่า Route based Code-Splitting)
+
+2. ใช้ React.Suspense + React.lazy (React 16.6 เป็นต้นไป)
+
+ใน React 16.6 มีฟีเจอร์ใหม่ คือ `React.Suspense` กับ `React.lazy` ที่ให้เราทำ code-splitting ได้เลยโดยไม่ต้องโหลด library เพิ่ม
+
+![React.lazy + React.Suspense](./20.png)
+
+ถ้าดูเผินๆ วิธีการใช้จะคล้ายๆ กับ react-loadable คือมีการใช้ dynamic import `import()` คู่กับตัว `React.lazy` จุดแตกต่างคือมีการใช้ `React.Suspense` component ครอบตัว component ที่ถูก lazy ไว้
+
+ถ้าเราอยากทำ Route based code-splitting แบบวิธีแรก ก็คือทำแบบนี้ได้เลย
+
+![ทำ Route base code-splitting ด้วย React.lazy + React.Suspense](./21.png)
+
+เพียงแค่เทคนิค simple ง่ายๆ Twitter สามารถลด bundle แรกที่ส่งออกไปให้ client ได้ถึง 45% เลยทีเดียว (Tinder เองก็มาบอกว่าลดไปได้ 50% เลยทีเดียว)
+ 
+![เพียงแค่ทำ code-spltting อย่างเดียว หายไปเยอะ แถมทำได้ไม่ยากด้วย](./22.jpeg)
+
+นอกจากนั้น การทำ code-splitting เองนอกจากระดับ route แล้ว ในแต่ละ route เราสามารถทำ code-splitting ได้อีก เช่น ถ้ามี component ไหนที่ยังไม่ถูก render หรือมีเงื่อนไขที่ถูก render ทีหลัง ก็สามารถทำ code-splitting ได้ โดยเอาตัว `React.lazy` กับ `React.Suspense` มาโหลดและแสดงผล component นั้นแทน
+
+![Code-Splitting ระดับ component](./24.png)
+
+ซึ่งผมเองได้เอาเทคนิคนี้ไปใช้ในเว็บบริษัท ผลออกมาน่าพอใจ เพราะลด JS size รวมๆ ลงไป 16% โดยประมาณ
+
+![จากรวมทั้งหมด 1.2MB ลดเหลือ 1.0MB](./23.png)
+
+## Library บางตัวใหญ่จัด เอามันออกไปปปปปป
 
 ## Reference เนื้อหา และรูปภาพบางส่วนจาก
 
