@@ -6,6 +6,7 @@ import rehypeReact from 'rehype-react'
 
 import Layout from '../components/Layout/Layout'
 import SEO from '../components/seo'
+import SocialShare from '../components/Share/SocialShare'
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
@@ -30,6 +31,7 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
     const coverImg = post.frontmatter.featuredImage.childImageSharp.sizes.src
+    const slug = post.frontmatter.slug;
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
@@ -61,6 +63,7 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ViewMoreSection>
+        <SocialShare frontmatter={post.frontmatter} />
       </Layout>
     )
   }
@@ -90,6 +93,7 @@ export const pageQuery = graphql`
             }
           }
         }
+        slug
       }
     }
   }
