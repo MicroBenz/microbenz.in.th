@@ -22,6 +22,7 @@ const HomeLink = styled(Link)`
 
 const Container = styled.div`
   padding-top: 80px;
+  padding-bottom: 40px;
   @media (max-width: 1200px) {
     padding-left: 5%;
     padding-right: 5%;
