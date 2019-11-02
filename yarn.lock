@@ -717,6 +717,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.6.3":
+  version "7.6.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.6.3.tgz#935122c74c73d2240cafd32ddb5fc2a6cd35cf1f"
+  integrity sha512-kq6anf9JGjW8Nt5rYfEuGRaEAaH1mkv3Bbu6rYvLOpPh/RusSJXuKPEAoZ7L7gybZkchE8+NV5g9vKF4AGAtsA==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/template@^7.1.0", "@babel/template@^7.4.4":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.4.4.tgz#f4b88d1225689a08f5bc3a17483545be9e4ed237"
@@ -5453,6 +5460,13 @@ gatsby-plugin-page-creator@^2.0.13:
     lodash "^4.17.10"
     micromatch "^3.1.10"
     slash "^1.0.0"
+
+gatsby-plugin-preact@^3.1.19:
+  version "3.1.19"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-preact/-/gatsby-plugin-preact-3.1.19.tgz#27c383c1c912c1019327b9aeaa2a45ba13a0ac0f"
+  integrity sha512-L9iANNZ1oCqZY/H/ncBNjWaKaPzPrPYxURo3ctmEBD3AYnNmQN4JuubJcTnKmsZp8fMa86FRie3S+9DhxngueQ==
+  dependencies:
+    "@babel/runtime" "^7.6.3"
 
 gatsby-plugin-react-helmet@^3.0.0:
   version "3.0.12"
@@ -10276,6 +10290,11 @@ potrace@^2.1.1:
   integrity sha1-eREahYGX82ZBiEX2Z/6Pf6wKeds=
   dependencies:
     jimp "^0.2.24"
+
+preact@^10.0.4:
+  version "10.0.4"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.0.4.tgz#7c1a2e074ea64a2d3c83349f7f55304ed0e017a7"
+  integrity sha512-x9QW91LVQZ4lkMZ8gOucyaW1414MEtgSC//JwlxR0nfq/QEdbaLQZrWFFWgjtGyNBBXg2P0TZ6u6W+XlpjcK2Q==
 
 prebuild-install@^5.3.0:
   version "5.3.0"
