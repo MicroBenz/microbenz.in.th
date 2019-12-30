@@ -30,19 +30,23 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-    const coverImg = post.frontmatter.featuredImage.childImageSharp.sizes.src
+    const coverImgObj = post.frontmatter.featuredImage
+      ? post.frontmatter.featuredImage.childImageSharp.sizes
+      : '';
     const slug = post.frontmatter.slug;
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
-          img={coverImg}
+          img={coverImgObj ? coverImgObj.src : ''}
           title={post.frontmatter.title}
           description={post.excerpt}
         />
         <h1 className="title">{post.frontmatter.title}</h1>
-        <FeaturedImage
-          sizes={post.frontmatter.featuredImage.childImageSharp.sizes}
-        />
+        {coverImgObj && (
+          <FeaturedImage
+            sizes={coverImgObj}
+          />
+        )}
         {/* <Bio date={post.frontmatter.date} /> */}
         <div className="content">{renderAst(post.htmlAst)}</div>
         <hr style={{}} />

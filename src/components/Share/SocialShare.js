@@ -76,12 +76,11 @@ const SocialShare = props => {
   const { title, slug } = frontmatter;
   const currentPageURL = encodeURIComponent(`https://microbenz.in.th/${slug}`);
   const twitterPrefil = encodeURIComponent(`I've read ${title} from MicroBenz!`);
-  console.log(currentPageURL);
   return (
     <>
       <hr />
       <Container>
-        <p className="title is-4">อ่านมาถึงตรงนี้ กดแชร์สิครับรออะไร!</p>
+        <p className="title is-4">อ่านมาถึงตรงนี้ ถ้าชอบกดแชร์ได้ตามสะดวกเลยครับ :D</p>
         <SocialContainer>
           <ShareLink
             href={`https://facebook.com/sharer/sharer.php?u=${currentPageURL}`}

@@ -40,19 +40,19 @@ function SEO({
                 property: 'og:description',
                 content: metaDescription,
               },
-              ...(img
+              (img
                 ? {
                     property: 'og:image',
                     content: `${data.site.siteMetadata.siteUrl}${img}`,
                   }
                 : {}),
-              ...(img
+              (img
                 ? {
                     property: 'og:image:width',
                     content: 1400,
                   }
                 : {}),
-              ...(img
+              (img
                 ? {
                     property: 'og:image:height',
                     content: 751,
