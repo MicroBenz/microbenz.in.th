@@ -9,12 +9,13 @@
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.0",
     "bulma": "^0.7.2",
-    "gatsby": "^2.0.19",
+    "gatsby": "^2.18.11",
     "gatsby-image": "^2.0.22",
     "gatsby-plugin-feed": "^2.0.8",
     "gatsby-plugin-google-analytics": "^2.0.5",
     "gatsby-plugin-manifest": "^2.0.5",
     "gatsby-plugin-offline": "^2.0.5",
+    "gatsby-plugin-postcss": "^2.3.2",
     "gatsby-plugin-preact": "^3.1.19",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
@@ -34,8 +35,8 @@
     "node-sass": "^4.11.0",
     "preact": "^10.0.4",
     "prismjs": "^1.15.0",
-    "react": "^16.5.1",
-    "react-dom": "^16.5.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
     "rehype-react": "^3.1.0",
@@ -46,7 +47,8 @@
     "eslint-plugin-react": "^7.11.1",
     "firebase-tools": "^6.1.2",
     "gatsby-plugin-remove-trailing-slashes": "^2.0.11",
-    "prettier": "^1.14.2"
+    "prettier": "^1.14.2",
+    "tailwindcss": "^1.4.6"
   },
   "homepage": "https://microbenz.in.th",
   "keywords": [
