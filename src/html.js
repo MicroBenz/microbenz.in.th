@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import './tailwind.css'
+
 const font =
   'https://fonts.googleapis.com/css?family=Sarabun:400,500,700&amp;subset=thai'
 

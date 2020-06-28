@@ -47,7 +47,7 @@ const BlogCard = props => {
   const { title, slug, tags = [], featuredImage } = data.frontmatter
   return (
     <BlogLink to={slug}>
-      <BlogContainer>
+      <div className="flex flex-row mb-4">
         {featuredImage && (
           <BlogImage>
             <Img fluid={featuredImage.childImageSharp.fluid} />
@@ -65,7 +65,7 @@ const BlogCard = props => {
             </div>
           )}
         </ContentContainer>
-      </BlogContainer>
+      </div>
     </BlogLink>
   )
 }
