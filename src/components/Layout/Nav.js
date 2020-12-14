@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 const MainNav = styled.nav`
+  height: 58px;
   @media (max-width: 600px) {
     padding-left: 5%;
     padding-right: 5%;
@@ -14,54 +15,24 @@ const Branding = styled.div`
   align-items: center !important;
 `
 
-const BetaTag = styled.div``
+const Tag = styled.div`
+  width: fit-content;
+`;
 
 const Nav = props => {
   return (
     <MainNav
-      className="navbar is-fixed-top has-shadow"
+      className="fixed top-0 left-0 right-0 bg-white"
       role="navigation"
       aria-label="main navigation"
     >
-      <div className="container">
-        <Branding className="navbar-brand">
-          <Link className="navbar-item" to="/">
-            <img src={require('./logo.png')} />
+      <div className="h-full">
+        <div className="flex items-center justify-center h-full navbar-brand">
+          <Link className="h-full navbar-item" to="/">
+            <img className="block h-full" src={require('./logo.png')} />
           </Link>
-          <BetaTag className="tag is-danger">Beta</BetaTag>
-
-          {/* <a
-            role="button"
-            className="navbar-burger burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-          </a> */}
-        </Branding>
-
-        {/* <div id="navbarBasicExample" className="navbar-menu">
-          <div className="navbar-start">
-            <a className="navbar-item">Home</a>
-
-            <a className="navbar-item">Documentation</a>
-
-            <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link">More</a>
-
-              <div className="navbar-dropdown">
-                <a className="navbar-item">About</a>
-                <a className="navbar-item">Jobs</a>
-                <a className="navbar-item">Contact</a>
-                <hr className="navbar-divider" />
-                <a className="navbar-item">Report an issue</a>
-              </div>
-            </div>
-          </div>
-        </div> */}
+          <Tag className="bg-red-400 rounded-lg">Beta</Tag>
+        </div>
       </div>
     </MainNav>
   )

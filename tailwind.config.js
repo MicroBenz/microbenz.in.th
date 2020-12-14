@@ -5,5 +5,8 @@ module.exports = {
         primary: 'red',
       }
     },
+    fontFamily: {
+      sans: ['Sarabun', 'Tahoma', 'sans-serif'],
+    }
   },
 }
