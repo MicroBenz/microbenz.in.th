@@ -10,11 +10,31 @@ const MainNav = styled.nav`
 `
 
 const Branding = styled.div`
-  justify-content: center;
+  flex: 1;
+  justify-content: flex-start;
   align-items: center !important;
 `
 
-const BetaTag = styled.div``
+const BetaTag = styled.div`
+  margin-right: 16px;
+`
+
+const WebringContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+const WebringLink = styled.a`
+  display: flex;
+`;
+
+const NavContainer = styled.div`
+  @media screen and (max-width: 1087px) {
+    display: flex !important;
+    flex-direction: row;
+  }
+`;
 
 const Nav = props => {
   return (
@@ -23,7 +43,7 @@ const Nav = props => {
       role="navigation"
       aria-label="main navigation"
     >
-      <div className="container">
+      <NavContainer className="container">
         <Branding className="navbar-brand">
           <Link className="navbar-item" to="/">
             <img src={require('./logo.png')} />
@@ -42,7 +62,16 @@ const Nav = props => {
             <span aria-hidden="true" />
           </a> */}
         </Branding>
-
+        <WebringContainer>
+          <WebringLink href="https://webring.wonderful.software#microbenz.in.th" title="วงแหวนเว็บ" target="_blank" rel="noopener noreferrer">
+            <img
+              alt="วงแหวนเว็บ"
+              width="32"
+              height="32"
+              src="https://webring.wonderful.software/webring.black.svg"
+            />
+          </WebringLink>
+        </WebringContainer>
         {/* <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
             <a className="navbar-item">Home</a>
@@ -62,7 +91,7 @@ const Nav = props => {
             </div>
           </div>
         </div> */}
-      </div>
+      </NavContainer>
     </MainNav>
   )
 }
