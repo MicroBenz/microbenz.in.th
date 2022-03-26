@@ -2,11 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import kebabCase from '../../utils/kebab-case'
 
 const BlogLink = styled(Link)`
   box-shadow: none;
+  width: 100%;
 `
 
 const BlogContainer = styled.div`
@@ -45,12 +47,13 @@ const BlogTitle = styled.h3`
 const BlogCard = props => {
   const { data } = props
   const { title, slug, tags = [], featuredImage } = data.frontmatter
+  console.log(featuredImage);
   return (
     <BlogLink to={slug}>
       <BlogContainer>
         {featuredImage && (
           <BlogImage>
-            <Img fluid={featuredImage.childImageSharp.fluid} />
+            <GatsbyImage image={featuredImage.childImageSharp.gatsbyImageData} />
           </BlogImage>
         )}
         <ContentContainer>

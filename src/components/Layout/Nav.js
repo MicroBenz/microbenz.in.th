@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
+import { StaticImage } from "gatsby-plugin-image"
 
 const MainNav = styled.nav`
   @media (max-width: 600px) {
@@ -46,9 +47,9 @@ const Nav = props => {
       <NavContainer className="container">
         <Branding className="navbar-brand">
           <Link className="navbar-item" to="/">
-            <img src={require('./logo.png')} />
+            <StaticImage src="./logo.png" />
           </Link>
-          <BetaTag className="tag is-danger">Beta</BetaTag>
+          {/* <BetaTag className="tag is-danger">Beta</BetaTag> */}
 
           {/* <a
             role="button"

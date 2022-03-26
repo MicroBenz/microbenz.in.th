@@ -12,6 +12,7 @@ module.exports = {
     },
   },
   plugins: [
+    'gatsby-plugin-image',
     'gatsby-plugin-preact',
     {
       resolve: `gatsby-source-filesystem`,
@@ -34,6 +35,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-sharp`,
+    'gatsby-transformer-sharp',
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -76,10 +78,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: env === 'development' ? '' : `UA-76883236-2`,
+        trackingId: env === 'development' ? 'UA-76883236-1' : 'UA-76883236-2',
       },
     },
-    `gatsby-plugin-feed`,
+    // `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

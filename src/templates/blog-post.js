@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import rehypeReact from 'rehype-react'
 
 import Layout from '../components/Layout/Layout'
@@ -13,7 +14,7 @@ const renderAst = new rehypeReact({
   // components: { test: Test },
 }).Compiler
 
-const FeaturedImage = styled(Img)`
+const FeaturedImage = styled(GatsbyImage)`
   margin-bottom: 1.5rem;
 `
 
@@ -30,9 +31,9 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-    const coverImgObj = post.frontmatter.featuredImage
+    const coverImgObj = getImage(post.frontmatter.featuredImage
       ? post.frontmatter.featuredImage.childImageSharp.sizes
-      : '';
+      : '');
     const slug = post.frontmatter.slug;
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -50,7 +51,6 @@ class BlogPostTemplate extends React.Component {
         {/* <Bio date={post.frontmatter.date} /> */}
         <div className="content">{renderAst(post.htmlAst)}</div>
         <hr style={{}} />
-
         <ViewMoreSection>
           <li>
             {previous && (
@@ -92,9 +92,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         featuredImage {
           childImageSharp {
-            sizes(maxWidth: 768, quality: 80) {
-              ...GatsbyImageSharpSizes_withWebp
-            }
+            gatsbyImageData(width: 768, quality: 80, formats: [AUTO, WEBP, AVIF])
           }
         }
         slug
