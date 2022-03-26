@@ -4,6 +4,7 @@ date: '2022-03-26T07:17:00.000Z'
 slug: 2020-and-2021-in-2022
 featuredImage: './cover.jpg'
 tags: ['Year in Review']
+published: false
 ---
 
 ใช่ครับ อ่านไม่ผิดหรอกครับ

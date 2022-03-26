@@ -16,6 +16,7 @@ const renderAst = new rehypeReact({
 
 const FeaturedImage = styled(GatsbyImage)`
   margin-bottom: 1.5rem;
+  width: 100%;
 `
 
 const ViewMoreSection = styled.ul`
@@ -32,8 +33,9 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
     const coverImgObj = getImage(post.frontmatter.featuredImage
-      ? post.frontmatter.featuredImage.childImageSharp.sizes
+      ? post.frontmatter.featuredImage.childImageSharp
       : '');
+    console.log(coverImgObj);
     const slug = post.frontmatter.slug;
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -45,7 +47,7 @@ class BlogPostTemplate extends React.Component {
         <h1 className="title">{post.frontmatter.title}</h1>
         {coverImgObj && (
           <FeaturedImage
-            sizes={coverImgObj}
+            image={coverImgObj}
           />
         )}
         {/* <Bio date={post.frontmatter.date} /> */}
@@ -92,7 +94,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         featuredImage {
           childImageSharp {
-            gatsbyImageData(width: 768, quality: 80, formats: [AUTO, WEBP, AVIF])
+            gatsbyImageData(quality: 80, formats: [AUTO, WEBP, AVIF])
           }
         }
         slug

@@ -32,7 +32,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { published: { ne: false } } }
+    ) {
       edges {
         node {
           frontmatter {
@@ -41,7 +44,7 @@ export const pageQuery = graphql`
             slug
             featuredImage {
               childImageSharp {
-                gatsbyImageData(width: 300, quality: 80, formats: [AUTO, WEBP, AVIF])
+                gatsbyImageData(width: 600, quality: 80, formats: [AUTO, WEBP, AVIF])
               }
             }
           }

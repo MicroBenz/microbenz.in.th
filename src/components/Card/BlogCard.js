@@ -47,7 +47,6 @@ const BlogTitle = styled.h3`
 const BlogCard = props => {
   const { data } = props
   const { title, slug, tags = [], featuredImage } = data.frontmatter
-  console.log(featuredImage);
   return (
     <BlogLink to={slug}>
       <BlogContainer>
