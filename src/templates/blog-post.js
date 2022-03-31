@@ -35,7 +35,6 @@ class BlogPostTemplate extends React.Component {
     const coverImgObj = getImage(post.frontmatter.featuredImage
       ? post.frontmatter.featuredImage.childImageSharp
       : '');
-    console.log(coverImgObj);
     const slug = post.frontmatter.slug;
     return (
       <Layout location={this.props.location} title={siteTitle}>
