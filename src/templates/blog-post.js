@@ -40,7 +40,7 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
-          img={coverImgObj ? coverImgObj.src : ''}
+          img={coverImgObj.images.fallback?.src ?? ''}
           title={post.frontmatter.title}
           description={post.excerpt}
         />
