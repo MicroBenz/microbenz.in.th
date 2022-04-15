@@ -3,7 +3,7 @@ title: '#เบนซ์นะจ๊ะในบริสเบน Chapter 1 - �
 date: '2019-05-26T20:00:00.000Z'
 slug: benz-work-and-travel-at-brisbane-chapter-1
 featuredImage: './cover.jpg'
-tags: ['Benz in Brisbane', 'Life Lesson']
+tags: ['Benz in Brisbane', 'Life']
 ---
 
 ไม่อยากเกริ่นอะไรมากละ เข้าเรื่องเลยดีกว่า 5555

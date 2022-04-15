@@ -77,8 +77,8 @@ const tagMapping = {
   'Year in Review': {
     title: 'Year in Review',
     description: 'For self reflection',
-    image: 'desktop/year-in-review.jpg',
-    mobileImage: 'mobile/year-in-review.jpg',
+    // image: 'desktop/year-in-review.jpg',
+    // mobileImage: 'mobile/year-in-review.jpg',
   },
   React: {
     title: 'React',
@@ -90,8 +90,8 @@ const tagMapping = {
     title: 'Graduation',
     description: 'One milestone of life.',
   },
-  'Life Lesson': {
-    title: 'Life Lesson',
+  Life: {
+    title: 'Life',
     description: 'ขีวิตคือการวิ่งมาราธอน ระยะทางสำคัญกว่าความเร็ว',
   },
   Product: {
