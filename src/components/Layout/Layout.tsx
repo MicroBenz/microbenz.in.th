@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import Nav from './Nav';
-import './app.scss';
+// import './app.scss';
 
 const GlobalStyle = createGlobalStyle`
   /* body {
@@ -19,24 +19,24 @@ const GlobalStyle = createGlobalStyle`
 //   color: inherit;
 // `;
 
-const Container = styled.div`
-  padding-top: 80px;
-  padding-bottom: 40px;
-  @media (max-width: 1200px) {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-`;
+// const Container = styled.div`
+//   /* padding-top: 80px; */
+//   /* padding-bottom: 40px; */
+//   @media (max-width: 1200px) {
+//     padding-left: 5%;
+//     padding-right: 5%;
+//   }
+// `;
 
 const Layout: React.FC = (props) => {
   const { children } = props;
   return (
     <main>
       <Nav />
-      <Container className="container">
+      <div className="pt-20 pb-20 container mx-auto">
         {/* {header} */}
         {children}
-      </Container>
+      </div>
       <GlobalStyle />
     </main>
   );

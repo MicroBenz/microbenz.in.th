@@ -38,15 +38,19 @@ const NavContainer = styled.div`
 `;
 
 const Nav: React.FC = () => (
-  <MainNav
-    className="navbar is-fixed-top has-shadow"
+  <nav
+    className="w-full z-50 fixed top-0 left-0 right-0 has-shadow bg-white h-16 shadow-md"
     role="navigation"
     aria-label="main navigation"
   >
-    <NavContainer className="container">
-      <Branding className="navbar-brand">
-        <Link className="navbar-item" to="/">
-          <StaticImage alt="MicroBenz" src="./logo.png" />
+    <div className="container h-full items-center flex mx-auto">
+      <div className="flex-1">
+        <Link className="flex items-center flex-grow-0 flex-shrink-0" to="/">
+          <StaticImage
+            alt="MicroBenz"
+            src="./logo.png"
+            width={48}
+          />
         </Link>
         {/* <BetaTag className="tag is-danger">Beta</BetaTag> */}
 
@@ -61,17 +65,17 @@ const Nav: React.FC = () => (
             <span aria-hidden="true" />
             <span aria-hidden="true" />
           </a> */}
-      </Branding>
-      <WebringContainer>
-        <WebringLink href="https://webring.wonderful.software#microbenz.in.th" title="วงแหวนเว็บ" target="_blank" rel="noopener noreferrer">
+      </div>
+      <div className="flex justify-end items-center">
+        <a className="flex" href="https://webring.wonderful.software#microbenz.in.th" title="วงแหวนเว็บ" target="_blank" rel="noopener noreferrer">
           <img
             alt="วงแหวนเว็บ"
             width="32"
             height="32"
             src="https://webring.wonderful.software/webring.black.svg"
           />
-        </WebringLink>
-      </WebringContainer>
+        </a>
+      </div>
       {/* <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
             <a className="navbar-item">Home</a>
@@ -91,8 +95,8 @@ const Nav: React.FC = () => (
             </div>
           </div>
         </div> */}
-    </NavContainer>
-  </MainNav>
+    </div>
+  </nav>
 );
 
 export default Nav;

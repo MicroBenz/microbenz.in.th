@@ -16,6 +16,7 @@ const config = {
   plugins: [
     'gatsby-plugin-image',
     'gatsby-plugin-preact',
+    'gatsby-plugin-postcss',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

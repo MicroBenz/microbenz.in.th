@@ -1,2 +1,3 @@
 // custom typefaces
-import './src/prism-atom-dark.css'
+import './src/styles/app.css';
+import './src/styles/prism-atom-dark.css';
