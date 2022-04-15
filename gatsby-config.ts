@@ -85,7 +85,44 @@ const config = {
         trackingId: env === 'development' ? 'UA-76883236-1' : 'UA-76883236-2',
       },
     },
-    // `gatsby-plugin-feed`,
+    {
+      resolve: 'gatsby-plugin-feed',
+      options: {
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => allMarkdownRemark.edges.map((edge) => ({
+              ...edge.node.frontmatter,
+              description: edge.node.excerpt,
+              date: edge.node.frontmatter.date,
+              url: encodeURI(site.siteMetadata.siteUrl + edge.node.fields.slug),
+              guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+              // custom_elements: [{ 'content:encoded': edge.node.html }],
+            })),
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields { slug }
+                      frontmatter {
+                        title
+                        date
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'MicroBenz RSS Feed',
+          },
+        ],
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
