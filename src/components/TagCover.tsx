@@ -1,19 +1,19 @@
-import React, { Fragment } from 'react'
-import styled from 'styled-components'
-import { withPrefix } from 'gatsby'
+import React, { Fragment } from 'react';
+import styled from 'styled-components';
+import { withPrefix } from 'gatsby';
 
 const CoverContainer = styled.div`
   position: relative;
   margin: -20px -20px 28px -20px;
-  background-image: url('${props => props.image}');
+  background-image: url('${(props) => props.image}');
   background-position: center center;
   background-size: cover;
   height: 360px;
   @media (max-width: 768px) {
     height: 280px;
-    background-image: url('${props => props.mobileImage}');
+    background-image: url('${(props) => props.mobileImage}');
   }
-`
+`;
 
 const BlackOverlay = styled.div`
   position: absolute;
@@ -28,14 +28,14 @@ const BlackOverlay = styled.div`
     rgba(0, 0, 0, 0.43) 71%,
     rgba(0, 0, 0, 0.6)
   );
-`
+`;
 
 const CoverImage = styled.img`
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-`
+`;
 
 const TitleContainer = styled.div`
   position: absolute;
@@ -44,22 +44,22 @@ const TitleContainer = styled.div`
   right: 0;
   z-index: 2;
   padding: 0 20px;
-`
+`;
 
 const TagTitle = styled.h1`
   margin-bottom: 0.25rem !important;
   @media (max-width: 768px) {
     margin-bottom: 0.25rem !important;
   }
-`
+`;
 
 const TagTitleWithImage = styled(TagTitle)`
   color: #ffffff !important;
-`
+`;
 
 const TagDescription = styled.p`
   color: #ffffff !important;
-`
+`;
 
 const tagMapping = {
   JavaScript: {
@@ -126,22 +126,26 @@ const tagMapping = {
     image: 'desktop/webperf.png',
     mobileImage: 'mobile/webperf.png',
   },
+};
+
+interface TagCoverProps {
+  tag: string;
 }
 
-const TagCover = props => {
-  const { tag } = props
+const TagCover: React.FC<TagCoverProps> = (props) => {
+  const { tag } = props;
   const tagContent = {
     title: tag,
     description: '',
     ...(tagMapping[tag] || {}),
-  }
+  };
   if (!tagContent.image || !tagContent.mobileImage) {
     return (
-      <Fragment>
+      <>
         <TagTitle className="title is-3">{tagContent.title}</TagTitle>
         <p>{tagContent.description}</p>
-      </Fragment>
-    )
+      </>
+    );
   }
   return (
     <CoverContainer
@@ -156,7 +160,7 @@ const TagCover = props => {
       </TitleContainer>
       <BlackOverlay />
     </CoverContainer>
-  )
-}
+  );
+};
 
-export default TagCover
+export default TagCover;

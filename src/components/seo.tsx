@@ -1,23 +1,45 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
 
-function SEO({
-  description,
-  lang,
-  meta,
-  keywords,
-  title,
-  isHome = false,
-  img,
-}) {
+const detailsQuery = graphql`
+  query DefaultSEOQuery {
+    site {
+      siteMetadata {
+        title
+        description
+        author
+        siteUrl
+      }
+    }
+  }
+`;
+
+interface SEOPageProps {
+  description?: string;
+  lang?: string;
+  meta?: { name: string; content: string; }[];
+  keywords?: string[];
+  title: string;
+  isHome?: boolean;
+  img?: string;
+}
+
+const SEO: React.FC<SEOPageProps> = (props) => {
+  const {
+    description,
+    lang = 'en',
+    meta = [],
+    keywords = [],
+    title,
+    isHome = false,
+    img,
+  } = props;
   return (
     <StaticQuery
       query={detailsQuery}
-      render={data => {
-        const metaDescription =
-          description || data.site.siteMetadata.description
+      render={(data) => {
+        const metaDescription = description ?? data.site.siteMetadata.description;
         return (
           <Helmet
             htmlAttributes={{
@@ -42,21 +64,21 @@ function SEO({
               },
               (img
                 ? {
-                    property: 'og:image',
-                    content: `${data.site.siteMetadata.siteUrl}${img}`,
-                  }
+                  property: 'og:image',
+                  content: `${data.site.siteMetadata.siteUrl}${img}`,
+                }
                 : {}),
               (img
                 ? {
-                    property: 'og:image:width',
-                    content: 1400,
-                  }
+                  property: 'og:image:width',
+                  content: 1400,
+                }
                 : {}),
               (img
                 ? {
-                    property: 'og:image:height',
-                    content: 751,
-                  }
+                  property: 'og:image:height',
+                  content: 751,
+                }
                 : {}),
               {
                 property: 'og:type',
@@ -82,44 +104,17 @@ function SEO({
               .concat(
                 keywords.length > 0
                   ? {
-                      name: 'keywords',
-                      content: keywords.join(', '),
-                    }
-                  : []
+                    name: 'keywords',
+                    content: keywords.join(', '),
+                  }
+                  : [],
               )
               .concat(meta)}
           />
-        )
+        );
       }}
     />
-  )
-}
+  );
+};
 
-SEO.defaultProps = {
-  lang: 'en',
-  meta: [],
-  keywords: [],
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.array,
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired,
-}
-
-export default SEO
-
-const detailsQuery = graphql`
-  query DefaultSEOQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        author
-        siteUrl
-      }
-    }
-  }
-`
+export default SEO;

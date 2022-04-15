@@ -1,6 +1,8 @@
-const env = process.env.NODE_ENV || 'development'
+import path from 'path';
 
-module.exports = {
+const env = process.env.NODE_ENV || 'development';
+
+const config = {
   siteMetadata: {
     title: 'เบนซ์เขียนบล็อกนะจ๊ะ - MicroBenz',
     author: 'Tananan Tangthanachaikul',
@@ -15,33 +17,35 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-preact',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/blog`,
+        path: path.resolve('content/blog'),
+        // path: `${__dirname}/content/blog`,
         name: 'blog',
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/assets`,
+        path: path.resolve('content/assets'),
+        // path: `${__dirname}/content/assets`,
         name: 'assets',
       },
     },
     {
-      resolve: `gatsby-plugin-styled-components`,
+      resolve: 'gatsby-plugin-styled-components',
       options: {
         ssr: true,
       },
     },
-    `gatsby-plugin-sharp`,
+    'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
               withWebp: true,
               quality: 70,
@@ -49,9 +53,9 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-responsive-iframe`,
+            resolve: 'gatsby-remark-responsive-iframe',
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
+              wrapperStyle: 'margin-bottom: 1.0725rem',
             },
           },
           {
@@ -72,31 +76,31 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-remove-trailing-slashes`,
-    `gatsby-transformer-sharp`,
+    'gatsby-plugin-remove-trailing-slashes',
+    'gatsby-transformer-sharp',
     'gatsby-plugin-sitemap',
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: env === 'development' ? 'UA-76883236-1' : 'UA-76883236-2',
       },
     },
     // `gatsby-plugin-feed`,
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `เบนซ์เขียนบล็อกนะจ๊ะ`,
-        short_name: `MicroBenz`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#3B76BF`,
-        display: `minimal-ui`,
-        icon: `content/assets/favicon.png`,
+        name: 'เบนซ์เขียนบล็อกนะจ๊ะ',
+        short_name: 'MicroBenz',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#3B76BF',
+        display: 'minimal-ui',
+        icon: 'content/assets/favicon.png',
       },
     },
-    `gatsby-plugin-remove-serviceworker`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
+    'gatsby-plugin-remove-serviceworker',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
     // {
     //   resolve: 'gatsby-plugin-typography',
     //   options: {
@@ -110,4 +114,6 @@ module.exports = {
     //   },
     // },
   ],
-}
+};
+
+export default config;
