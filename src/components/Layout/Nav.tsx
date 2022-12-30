@@ -46,7 +46,7 @@ const Nav: React.FC = () => (
     <NavContainer className="container">
       <Branding className="navbar-brand">
         <Link className="navbar-item" to="/">
-          <StaticImage alt="MicroBenz" src="./logo.png" />
+          <StaticImage alt="MicroBenz" src="./logo-v2.png" />
         </Link>
         {/* <BetaTag className="tag is-danger">Beta</BetaTag> */}
 
