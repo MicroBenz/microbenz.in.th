@@ -4,22 +4,23 @@ import { SITE_TITLE } from '../consts';
 ---
 
 <header>
-	<h2>
-		{SITE_TITLE}
-	</h2>
-	<nav>
-		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/blog">Blog</HeaderLink>
-		<HeaderLink href="/about">About</HeaderLink>
-		<HeaderLink href="https://twitter.com/astrodotbuild" target="_blank">Twitter</HeaderLink>
-		<HeaderLink href="https://github.com/withastro/astro" target="_blank">GitHub</HeaderLink>
+	<nav class="fixed top-0 left-0 right-0 bg-white h-[72px] border-b-[1px] px-4 z-50">
+		<div class="container mx-auto flex justify-between items-center h-full">
+			<div class="branding">
+				<a>
+					<p>Logo</p>
+				</a>
+			</div>
+			<div class="webring">
+				<a href="https://webring.wonderful.software#microbenz.in.th" title="วงแหวนเว็บ" target="_blank" rel="noopener noreferrer">
+					<img
+            alt="วงแหวนเว็บ"
+            width="32"
+            height="32"
+            src="https://webring.wonderful.software/webring.black.svg"
+          />
+				</a>
+			</div>
+		</div>
 	</nav>
 </header>
-<style>
-	header {
-		margin: 0em 0 2em;
-	}
-	h2 {
-		margin: 0.5em 0;
-	}
-</style>
