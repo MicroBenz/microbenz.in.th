@@ -1,0 +1,34 @@
+---
+import dayjs from 'dayjs';
+import type { CollectionEntry } from 'astro:content';
+import { Image } from "astro:assets";
+
+type Props = { blog: CollectionEntry<'blog'> };
+
+const { blog } = Astro.props;
+---
+<div class="w-full">
+  <div class="overflow-hidden rounded-md">
+    <div class="relative block aspect-[43/23]">
+      <!-- <img {...blog.data.featuredImage} class="absolute inset-0 object-cover w-full h-full" /> -->
+      <Image src={blog.data.featuredImage} alt={blog.data.title} />
+    </div>
+  </div>
+  <div class="pt-4">
+    <p class="text-2xl font-medium line-clamp-2">{blog.data.title}</p>
+    <div class="flex items-center mt-3 space-x-3 text-space-cadet">
+      <!-- <a href="/author/mario-sanchez">
+        <div class="flex items-center gap-3">
+          <div class="relative flex-shrink-0 w-5 h-5">
+            <img alt="Benz" loading="lazy" decoding="async" data-nimg="fill" class="object-cover rounded-full" sizes="20px" src="https://via.placeholder.com/200x200" style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
+          </div>
+          <span class="text-sm truncate">Mario Sanchez</span>
+        </div>
+      </a> -->
+      <!-- <span class="text-xs text-gray-300 dark:text-gray-600">•</span> -->
+      <time class="text-sm truncate" datetime={blog.data.date.toISOString()}>
+        {dayjs(blog.data.date).format('D MMMM YYYY')}
+      </time>
+    </div>
+  </div>
+</div>

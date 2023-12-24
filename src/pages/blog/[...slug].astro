@@ -1,0 +1,27 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import BlogPost from '../../layouts/PageLayout.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<PageLayout title={`${post.data.title} - เบนซ์เขียนบล็อกนะจ๊ะ`} featuredImage={post.data.featuredImage.src}>
+	<section class="max-w-[768px] mx-auto">
+		<h1 class="text-3xl font-medium leading-loose md:leading-relaxed md:text-4xl">{post.data.title}</h1>
+		<img class="my-4" alt={post.data.title} {...post.data.featuredImage} />
+		<div class="w-full max-w-full prose prose-lg md:prose-xl text-space-cadet">
+			<Content />
+		</div>
+	</section>
+</PageLayout>

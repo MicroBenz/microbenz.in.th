@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BlogCard from '../components/card/BlogCard.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import FormattedDate from '../components/FormattedDate.astro';
+import PageLayout from '../layouts/PageLayout.astro';
+
+const allBlogs = await getCollection('blog');
+const blogs = allBlogs.sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+---
+
+<PageLayout>
+	<section>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 md:mb-8">
+			{blogs.slice(0, 2).map((blog) => (
+				<a href={`/blog/${blog.slug}`}>
+					<BlogCard blog={blog} />
+				</a>
+			))}
+		</div>
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+			{blogs.slice(2).map((blog) => (
+				<a href={`/blog/${blog.slug}`}>
+					<BlogCard blog={blog} />
+				</a>
+			))}
+		</div>
+	</section>
+</PageLayout>
