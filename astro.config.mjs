@@ -125,7 +125,7 @@ const OLD_SLUG_REDIRECT = [
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.microbenz.in.th',
+  site: 'https://microbenz.in.th',
   integrations: [mdx(), sitemap(), tailwind()],
   redirects: {
     ...OLD_SLUG_REDIRECT,
