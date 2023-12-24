@@ -2,7 +2,7 @@
 title: '2022'
 date: '2022-12-22T07:30:00.000Z'
 slug: 2022-review
-featuredImage: '/assets/29-2022-review/cover.jpg'
+featuredImage: './cover.jpg'
 tags: ['Year in Review']
 published: true
 ---

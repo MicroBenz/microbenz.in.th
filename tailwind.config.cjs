@@ -4,12 +4,27 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: 'Sarabun, sans-serif',
+				sans: `Poppins, 'IBM Plex Sans Thai Looped', sans-serif`,
 			},
 			container: {
-				
+				screens: {
+					sm: '640px',
+					md: '768px',
+					lg: '1024px',
+					xl: '1280px',
+					'2xl': '1280px',
+				}
+			},
+			colors: {
+				'space-cadet': '#173057',
+				'celestial-blue': '#518ECB',
+				bittersweet: '#F26A5D',
+				'light-gray': '#D3D3D3',
+				'main-bg': '#d9e6f2'
 			}
 		},
 	},
-	plugins: [],
+	plugins: [
+		require('@tailwindcss/typography'),
+	],
 }

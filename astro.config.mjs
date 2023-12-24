@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, squooshImageService } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
@@ -130,5 +130,8 @@ export default defineConfig({
   redirects: {
     ...OLD_SLUG_REDIRECT,
     ...LEGACY_SLUG_REDIRECT,
-  }
+  },
+  image: {
+    service: squooshImageService(),
+  },
 });
