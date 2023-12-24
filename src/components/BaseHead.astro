@@ -11,7 +11,7 @@ export interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, featuredImage: image = '/assets/images/microbenz-social.jpg' } = Astro.props;
+const { title, description = 'ในเบนซ์เขียนบล็อกนะจ๊ะ เบนซ์จะมาแชร์เรื่องเล่าเก้าสิบห้าอย่างที่อาจจะมีทั้งไอที ของกิน ท่องเที่ยว หรือเวิ่นเว้อไม่มีสาระ หรือเวิ่นเว้อแบบมีสาระ', featuredImage: image = '/assets/images/microbenz-social.jpg' } = Astro.props;
 ---
 
 <!-- Global Metadata -->
