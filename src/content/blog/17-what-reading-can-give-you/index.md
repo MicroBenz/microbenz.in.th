@@ -2,7 +2,7 @@
 title: ได้อะไรมาบ้าง หลังจากกลับมาอ่านหนังสือ
 date: '2018-02-19T10:00:00.000Z'
 slug: what-ive-got-from-reading
-featuredImage: '/assets/17-what-reading-can-give-you/cover.png'
+featuredImage: './cover.png'
 tags: ['Reading']
 ---
 

@@ -2,7 +2,7 @@
 title: 'ทำความรู้จักกับ Hooks ของ React: ฟีเจอร์ที่จะมาเปลี่ยนการเขียน React ไปตลอดกาล'
 date: '2019-01-04T15:00:00.000Z'
 slug: react-hooks-101
-featuredImage: '/assets/21-react-hooks/cover.png'
+featuredImage: './cover.png'
 tags: ['JavaScript', 'Coding', 'React']
 ---
 

@@ -2,7 +2,7 @@
 title: Managing Oneself พยายามจะบอกอะไรกับเรา?
 date: '2018-03-20T10:00:00.000Z'
 slug: managing-oneself-review
-featuredImage: '/assets/18-managing-oneself/cover.png'
+featuredImage: './cover.png'
 tags: ['Reading', 'Review']
 ---
 

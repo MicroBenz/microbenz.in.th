@@ -2,7 +2,7 @@
 title: 391 Commits = YWC#15 Website
 date: '2017-12-04T10:00:00.000Z'
 slug: behind-the-scene-ywc15-website
-featuredImage: '/assets/12-ywc15-website/cover.png'
+featuredImage: ./cover.png
 tags: ['YWC', 'Coding', 'JavaScript']
 ---
 

@@ -2,7 +2,7 @@
 title: 'Huawei P10: เหมือนซื้อกล้องแถมมือถือ (หรือซื้อมือถือแถมกล้อง????)'
 date: '2017-04-16T10:00:00.000Z'
 slug: huawei-p10-review
-featuredImage: '/assets/08-huawei-p10/cover.jpg'
+featuredImage: './cover.jpg'
 tags: ['Review']
 ---
 

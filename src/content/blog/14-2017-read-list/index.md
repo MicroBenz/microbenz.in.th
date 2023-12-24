@@ -2,7 +2,7 @@
 title: 6 หนังสือที่ได้อ่านเมื่อปี 2017
 date: '2018-01-01T10:00:00.000Z'
 slug: 6-books-in-2017
-featuredImage: '/assets/14-2017-read-list/cover.png'
+featuredImage: './cover.png'
 tags: ['Reading']
 ---
 

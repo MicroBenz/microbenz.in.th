@@ -2,7 +2,7 @@
 title: 'เบนซ์นะจ๊ะในรั้ววิศวฯ จุฬาฯ — Episode 2: Now, I am CP40'
 date: '2017-05-02T10:00:00.000Z'
 slug: benz-in-chula-engineering-ep2
-featuredImage: '/assets/09-benz-in-intania-part-2/cover.jpg'
+featuredImage: './cover.jpg'
 tags: ['University Life']
 ---
 

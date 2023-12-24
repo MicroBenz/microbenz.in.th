@@ -2,7 +2,7 @@
 title: ทำความรู้จักกับ Redux แบบฉบับย่อยแล้วย่อยอีก
 date: '2017-01-05T10:00:00.000Z'
 slug: super-digest-redux-101
-featuredImage: '/assets/04-redux/cover.jpg'
+featuredImage: './cover.jpg'
 tags: ['JavaScript', 'Coding']
 ---
 

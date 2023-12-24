@@ -2,7 +2,7 @@
 title: “MVP” คำที่ไม่ว่าทำงานไหนๆ ควรจำให้ขึ้นใจ
 date: '2018-02-03T10:00:00.000Z'
 slug: business-mvp-101
-featuredImage: '/assets/16-mvp/cover.png'
+featuredImage: './cover.png'
 tags: ['Product']
 ---
 

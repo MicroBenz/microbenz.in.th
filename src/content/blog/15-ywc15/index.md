@@ -2,7 +2,7 @@
 title: เพื่อน, พี่น้อง, ครอบครัว (และไม่ได้นอน) — YWC#15
 date: '2018-01-08T10:00:00.000Z'
 slug: ywc15-review-in-the-eye-of-staff
-featuredImage: '/assets/15-ywc15/cover.png'
+featuredImage: './cover.png'
 tags: ['YWC']
 ---
 

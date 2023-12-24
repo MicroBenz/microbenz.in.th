@@ -2,7 +2,7 @@
 title: นี่ปี 2017 แล้ว มาเขียน ES6 กัน
 date: '2017-01-15T10:00:00.000Z'
 slug: es6-js
-featuredImage: '/assets/05-es6/cover.jpg'
+featuredImage: './cover.jpg'
 tags: ['JavaScript', 'Coding']
 ---
 

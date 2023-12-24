@@ -2,7 +2,7 @@
 title: สวัสดีครับ ผมมีชื่อว่า “React”
 date: '2017-02-10T10:00:00.000Z'
 slug: react-101
-featuredImage: '/assets/06-react/cover.jpg'
+featuredImage: './cover.jpg'
 tags: ['JavaScript', 'Coding', 'React']
 ---
 

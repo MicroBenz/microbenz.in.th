@@ -2,7 +2,7 @@
 title: Graduation is just the beginning
 date: '2018-10-13T10:00:00.000Z'
 slug: graduate-is-just-the-beginning
-featuredImage: '/assets/19-graduate-is-just-beginning/cover.jpg'
+featuredImage: './cover.jpg'
 tags: ['Graduation', 'Life']
 ---
 

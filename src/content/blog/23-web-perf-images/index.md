@@ -2,7 +2,7 @@
 title: 'Web Performance Series: จะใช้รูปอะไร โปรดคิดก่อน'
 date: '2019-04-02T17:50:00.000Z'
 slug: web-performance-series-optimize-images
-featuredImage: '/assets/23-web-perf-images/cover.png'
+featuredImage: './cover.png'
 tags: ['Coding', 'Web Performance']
 ---
 

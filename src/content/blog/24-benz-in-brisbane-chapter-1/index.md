@@ -2,7 +2,7 @@
 title: '#เบนซ์นะจ๊ะในบริสเบน Chapter 1 - บริสเบนหนาวมาก'
 date: '2019-05-26T20:00:00.000Z'
 slug: benz-work-and-travel-at-brisbane-chapter-1
-featuredImage: '/assets/24-benz-in-brisbane-chapter-1/cover.jpg'
+featuredImage: './cover.jpg'
 tags: ['Benz in Brisbane', 'Life']
 ---
 

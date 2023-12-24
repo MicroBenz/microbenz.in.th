@@ -2,7 +2,7 @@
 title: 'เบนซ์นะจ๊ะในรั้ววิศวฯ จุฬาฯ — Episode 1: เป็นน้องปี 1 นี่มันดีจริงๆ'
 date: '2017-03-08T10:00:00.000Z'
 slug: benz-in-chula-engineering-ep1
-featuredImage: '/assets/07-benz-in-intania-part-1/cover.jpg'
+featuredImage: './cover.jpg'
 tags: ['University Life']
 ---
 

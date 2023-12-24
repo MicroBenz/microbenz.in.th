@@ -2,7 +2,7 @@
 title: 'สิ่งที่ผมเองก็ยังไม่รู้ (และบางอันก็อยากจะรู้)'
 date: '2019-02-17T10:00:00.000Z'
 slug: things-i-dont-know
-featuredImage: '/assets/22-things-i-dont-know/cover.jpg'
+featuredImage: './cover.jpg'
 tags: ['Coding']
 ---
 

@@ -2,7 +2,7 @@
 title: “4 ปีมันผ่านไปไวนะ”…บันทึก ณ วันที่เรียนจบ
 date: '2017-10-01T10:00:00.000Z'
 slug: 4-year-in-chula-engineering
-featuredImage: '/assets/11-4-years-in-university/cover.jpg'
+featuredImage: './cover.jpg'
 tags: ['Life', 'University Life']
 ---
 

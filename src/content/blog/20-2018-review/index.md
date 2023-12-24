@@ -2,7 +2,7 @@
 title: '#เบนซ์นะจ๊ะในปี2018'
 date: '2018-12-24T18:36:00.000Z'
 slug: 2018-review
-featuredImage: '/assets/20-2018-review/cover.jpg'
+featuredImage: './cover.jpg'
 tags: ['Year in Review']
 ---
 

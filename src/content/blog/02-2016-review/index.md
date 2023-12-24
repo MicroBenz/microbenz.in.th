@@ -2,7 +2,7 @@
 title: 2016 Recap — ย้อนอดีต ปีนี้ทำอะไรไปบ้าง
 date: '2016-12-29T10:00:00.000Z'
 slug: 2016-review
-featuredImage: '/assets/02-2016-review/cover.png'
+featuredImage: './cover.png'
 tags: ['Year in Review']
 ---
 

@@ -2,7 +2,7 @@
 title: 'Web Performance Series: แท็ก script ใช้ให้ดี มีประโยชน์'
 date: '2020-01-26T17:50:00.000Z'
 slug: web-performance-series-how-to-use-script-tag
-featuredImage: '/assets/27-web-perf-script-tag/cover.jpg'
+featuredImage: './cover.jpg'
 tags: ['Coding', 'Web Performance']
 ---
 

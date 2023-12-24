@@ -2,7 +2,7 @@
 title: ทำยังไงถึงจะเรียนรู้ได้เร็วๆ (ตามแบบฉบับมนุษย์ทำเว็บ)
 date: '2017-01-01T10:00:00.000Z'
 slug: how-to-learning-fast
-featuredImage: '/assets/03-how-to-learn-fast/cover.jpg'
+featuredImage: './cover.jpg'
 tags: ['Self Improvement']
 ---
 

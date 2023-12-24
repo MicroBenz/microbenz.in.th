@@ -2,7 +2,7 @@
 title: ค่ายบ้าอะไร แทบไม่ได้นอน YWC#14
 date: '2016-12-26T22:12:03.284Z'
 slug: ywc14
-featuredImage: '/assets/01-ywc14/1.png'
+featuredImage: './1.png'
 tags: ['YWC']
 ---
 

@@ -2,7 +2,7 @@
 title: ลองใช้ styled-components สิ…แล้วคุณจะลืมการเขียน CSS แบบเดิมๆ ไปเลย
 date: '2017-08-26T10:00:00.000Z'
 slug: styled-components-101
-featuredImage: '/assets/10-styled-components/cover.jpg'
+featuredImage: './cover.jpg'
 tags: ['JavaScript', 'Coding', 'React']
 ---
 

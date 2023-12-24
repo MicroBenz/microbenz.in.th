@@ -2,7 +2,7 @@
 title: '2020 - 2021'
 date: '2022-03-26T07:17:00.000Z'
 slug: 2020-and-2021-in-2022
-featuredImage: '/assets/28-2020-2021/cover.jpg'
+featuredImage: './cover.jpg'
 tags: ['Year in Review']
 published: true
 ---

@@ -2,7 +2,7 @@
 title: '#เบนซ์นะจ๊ะในบริสเบน Chapter 2 - ทำงาน และใช้ชีวิต (และทำกับข้าว)'
 date: '2019-06-12T20:00:00.000Z'
 slug: benz-work-and-travel-at-brisbane-chapter-2
-featuredImage: '/assets/25-benz-in-brisbane-chapter-2/cover.jpg'
+featuredImage: './cover.jpg'
 tags: ['Benz in Brisbane', 'Life']
 ---
 

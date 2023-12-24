@@ -2,7 +2,7 @@
 title: '2019'
 date: '2019-12-30T15:47:00.000Z'
 slug: 2019-review
-featuredImage: '/assets/26-2019-review/cover.jpg'
+featuredImage: './cover.jpg'
 tags: ['Year in Review']
 ---
 
