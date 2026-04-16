@@ -1,8 +1,7 @@
-import { defineConfig, squooshImageService } from 'astro/config';
+import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from '@tailwindcss/vite';
 
 // This group of slug is old one from Medium / convert to shorter and english base
 const LEGACY_SLUG_REDIRECT = [
@@ -126,12 +125,15 @@ const OLD_SLUG_REDIRECT = [
 // https://astro.build/config
 export default defineConfig({
   site: 'https://microbenz.in.th',
-  integrations: [mdx(), sitemap(), tailwind()],
+  integrations: [mdx(), sitemap()],
   redirects: {
     ...OLD_SLUG_REDIRECT,
     ...LEGACY_SLUG_REDIRECT,
   },
-  image: {
-    service: squooshImageService(),
+  legacy: {
+    collections: true,
+  },
+  vite: {
+    plugins: [tailwindcss()],
   },
 });

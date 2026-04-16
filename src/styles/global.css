@@ -1,3 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: Poppins, 'IBM Plex Sans Thai Looped', sans-serif;
+  --color-space-cadet: #173057;
+  --color-celestial-blue: #518ECB;
+  --color-bittersweet: #F26A5D;
+  --color-light-gray: #D3D3D3;
+  --color-main-bg: #d9e6f2;
+}
+
+/* Cap container at xl (1280px) on 2xl screens, matching the old tailwind.config.cjs behavior */
+@utility container {
+  @media (width >= theme(--breakpoint-2xl)) {
+    max-width: theme(--breakpoint-xl);
+  }
+}

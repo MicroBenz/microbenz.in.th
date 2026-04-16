@@ -19,14 +19,14 @@ const blogs = allBlogs.sort(
 	<section>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 md:mb-8">
 			{blogs.slice(0, 2).map((blog) => (
-				<a href={`/blog/${blog.slug}`}>
+				<a href={`/blog/${blog.data.slug ?? blog.id.split('/')[0]}`}>
 					<BlogCard blog={blog} />
 				</a>
 			))}
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 			{blogs.slice(2).map((blog) => (
-				<a href={`/blog/${blog.slug}`}>
+				<a href={`/blog/${blog.data.slug ?? blog.id.split('/')[0]}`}>
 					<BlogCard blog={blog} />
 				</a>
 			))}

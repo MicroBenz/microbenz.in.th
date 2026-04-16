@@ -1,19 +1,22 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
-import BlogPost from '../../layouts/PageLayout.astro';
+import { type CollectionEntry, getCollection, render } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
+	return posts.map((post) => {
+		// Use frontmatter slug if provided, otherwise derive from the directory name in the id
+		const slug = post.data.slug ?? post.id.split('/')[0];
+		return {
+			params: { slug },
+			props: post,
+		};
+	});
 }
 type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 
 <PageLayout title={`${post.data.title} - เบนซ์เขียนบล็อกนะจ๊ะ`} featuredImage={post.data.featuredImage.src}>
