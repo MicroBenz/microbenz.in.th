@@ -6,9 +6,10 @@ import Footer from '../components/Footer.astro';
 type Props = {
 	title?: string;
 	featuredImage?: string;
+	fullWidth?: boolean;
 };
 
-const { title = 'เบนซ์เขียนบล็อกนะจ๊ะ - MicroBenz', featuredImage } = Astro.props;
+const { title = 'เบนซ์เขียนบล็อกนะจ๊ะ - MicroBenz', featuredImage, fullWidth = false } = Astro.props;
 ---
 
 <html lang="th">
@@ -34,15 +35,21 @@ const { title = 'เบนซ์เขียนบล็อกนะจ๊ะ - 
 		<!-- End Google Tag Manager -->
 	</head>
 
-	<body class="font-sans bg-white text-celestial-blue">
+	<body class="font-sans bg-main-bg text-space-cadet">
 		<!-- Google Tag Manager (noscript) -->
 		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG7TDJDN"
 		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<!-- End Google Tag Manager (noscript) -->
 		<Header />
-		<main class="container mx-auto pt-[84px] md:pt-[88px] pb-[84px] md:pb-[88px] px-6 md:px-0">
-			<slot />
-		</main>
+		{fullWidth ? (
+			<main class="pt-[72px]">
+				<slot />
+			</main>
+		) : (
+			<main class="container mx-auto pt-[88px] pb-[88px] px-6 md:px-10">
+				<slot />
+			</main>
+		)}
 		<Footer />
 	</body>
 </html>

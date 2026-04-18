@@ -1,26 +1,24 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
+const pathname = Astro.url.pathname;
+const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);
 ---
 
 <header>
-	<nav class="fixed top-0 left-0 right-0 bg-white h-[72px] border-b border-light-gray px-4 z-50">
-		<div class="container flex items-center justify-between h-full mx-auto">
-			<div class="branding">
-				<a href="/">
-					<img class="h-8" src="/assets/logo/microbenz.png" alt="MicroBenz" />
+	<nav class="fixed top-0 left-0 right-0 border-b border-[#DCDCDE] bg-main-bg/80 backdrop-blur-md z-50 h-[72px]">
+		<div class="container mx-auto px-6 md:px-10 flex items-center justify-between h-full">
+			<a href="/" class="flex items-center gap-2.5 no-underline">
+				<img src="/assets/logo/symbol-navy.png" alt="MicroBenz symbol" class="w-9 h-9" />
+				<span class="font-bold text-[22px] text-space-cadet tracking-[-0.02em] leading-none">MicroBenz</span>
+			</a>
+			<!-- <nav class="flex items-center gap-7 text-[15px] font-medium">
+				<a href="/" class={`transition-colors ${isActive('/') ? 'text-space-cadet underline underline-offset-4' : 'text-celestial-blue hover:text-space-cadet'}`}>Home</a>
+				<a href="/blog" class={`transition-colors ${isActive('/blog') ? 'text-space-cadet underline underline-offset-4' : 'text-celestial-blue hover:text-space-cadet'}`}>Blog</a>
+				<a href="/about" class={`transition-colors ${isActive('/about') ? 'text-space-cadet underline underline-offset-4' : 'text-celestial-blue hover:text-space-cadet'}`}>About</a>
+				<a href="/rss.xml" class="flex items-center gap-1.5 text-celestial-blue hover:text-space-cadet transition-colors">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+					RSS
 				</a>
-			</div>
-			<div class="webring">
-				<a href="https://webring.wonderful.software#microbenz.in.th" title="วงแหวนเว็บ" target="_blank" rel="noopener noreferrer">
-					<img
-            alt="วงแหวนเว็บ"
-            width="32"
-            height="32"
-            src="https://webring.wonderful.software/webring.black.svg"
-          />
-				</a>
-			</div>
+			</nav> -->
 		</div>
 	</nav>
 </header>
