@@ -2,10 +2,11 @@
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 import BlogCard from '../../components/card/BlogCard.astro';
+import { extractExcerpt } from '../../utils/excerpt';
 import dayjs from 'dayjs';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
+	const posts = await getCollection('blog', ({ data }) => data.published !== false);
 	return posts.map((post) => {
 		const slug = post.data.slug ?? post.id.split('/')[0];
 		return {
@@ -23,15 +24,38 @@ interface Props {
 const { post, allPosts } = Astro.props;
 const { Content } = await render(post);
 
+const description = post.data.description ?? extractExcerpt(post.body ?? '');
 const tag = post.data.tags?.[0];
 
 const others = allPosts
-	.filter(p => p.id !== post.id)
+	.filter(p => p.id !== post.id && p.data.published !== false)
 	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 	.slice(0, 2);
+
+const postSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BlogPosting',
+	headline: post.data.title,
+	...(description && { description }),
+	image: new URL(post.data.featuredImage.src, Astro.site).toString(),
+	datePublished: post.data.date.toISOString(),
+	author: {
+		'@type': 'Person',
+		name: 'Benz',
+		url: Astro.site?.toString(),
+	},
+	url: Astro.url.toString(),
+};
 ---
 
-<PageLayout title={`${post.data.title} - เบนซ์เขียนบล็อกนะจ๊ะ`} featuredImage={post.data.featuredImage.src} fullWidth>
+<PageLayout
+	title={`${post.data.title} - MicroBenz`}
+	description={description}
+	featuredImage={post.data.featuredImage.src}
+	ogType="article"
+	schema={postSchema}
+	fullWidth
+>
 	<!-- Post hero -->
 	<div class="relative w-full aspect-[1400/751] min-h-[280px] overflow-hidden">
 		<img src={post.data.featuredImage.src} alt={post.data.title} class="w-full h-full object-cover" />

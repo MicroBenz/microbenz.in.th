@@ -4,15 +4,23 @@ import BlogCard from '../components/card/BlogCard.astro';
 import PageLayout from '../layouts/PageLayout.astro';
 
 const allBlogs = await getCollection('blog');
-const blogs = allBlogs.sort(
+const blogs = allBlogs.filter(b => b.data.published !== false).sort(
 	(a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 
 const featured = blogs[0];
 const rest = blogs.slice(1);
+
+const personSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: 'Benz',
+	url: 'https://microbenz.in.th',
+	description: 'Personal blog covering tech, life, gaming, and more',
+};
 ---
 
-<PageLayout>
+<PageLayout schema={personSchema}>
 	<!-- Hero -->
 	<section class="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-14 md:gap-16 items-center py-16 md:py-12 mb-2">
 		<div>
@@ -26,10 +34,11 @@ const rest = blogs.slice(1);
 				<a href="/about" class="bg-transparent text-space-cadet border border-space-cadet px-6 py-3 rounded-[10px] font-semibold text-[15px] hover:bg-space-cadet hover:text-white transition-colors">About Benz</a>
 			</div> -->
 		</div>
-		<div class="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-[0_12px_32px_rgba(23,48,87,0.18)] hidden md:block">
-			<img src="/assets/images/photo-benz-rocks.png" alt="Benz" class="w-full h-full object-cover" />
+		<!-- Desktop Image (temporary hidden) -->
+		<!-- <div class="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-[0_12px_32px_rgba(23,48,87,0.18)] hidden md:block">
+			<img src="/assets/images/photo-benz-rocks.png" alt="Benz" class="w-full h-full object-cover" fetchpriority="high" loading="eager" />
 			<img src="/assets/logo/symbol-white.png" alt="" class="absolute bottom-4 right-4 w-11 opacity-90" />
-		</div>
+		</div> -->
 	</section>
 
 	<!-- Latest writing -->

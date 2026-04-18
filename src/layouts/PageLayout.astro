@@ -5,16 +5,19 @@ import Footer from '../components/Footer.astro';
 
 type Props = {
 	title?: string;
+	description?: string;
 	featuredImage?: string;
+	ogType?: string;
+	schema?: object;
 	fullWidth?: boolean;
 };
 
-const { title = 'เบนซ์เขียนบล็อกนะจ๊ะ - MicroBenz', featuredImage, fullWidth = false } = Astro.props;
+const { title = 'เบนซ์เขียนบล็อกนะจ๊ะ - MicroBenz', description, featuredImage, ogType, schema, fullWidth = false } = Astro.props;
 ---
 
 <html lang="th">
 	<head>
-		<BaseHead title={title} featuredImage={featuredImage} />
+		<BaseHead title={title} description={description} featuredImage={featuredImage} ogType={ogType} schema={schema} />
 		<!-- Google Tag Manager -->
 		<script is:inline>
 			window.dataLayer = window.dataLayer || [];
