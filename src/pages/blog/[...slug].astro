@@ -33,7 +33,7 @@ const others = allPosts
 
 <PageLayout title={`${post.data.title} - เบนซ์เขียนบล็อกนะจ๊ะ`} featuredImage={post.data.featuredImage.src} fullWidth>
 	<!-- Post hero -->
-	<div class="relative h-[400px] md:h-[460px] overflow-hidden">
+	<div class="relative w-full aspect-[1400/751] min-h-[280px] overflow-hidden">
 		<img src={post.data.featuredImage.src} alt={post.data.title} class="w-full h-full object-cover" />
 		<div class="absolute inset-0 bg-gradient-to-b from-transparent from-[40%] to-[rgba(23,48,87,0.85)]"></div>
 		<div class="absolute bottom-10 md:bottom-12 left-0 right-0 max-w-[880px] mx-auto px-6 md:px-10 text-white">
@@ -61,7 +61,7 @@ const others = allPosts
 				</div>
 				<div>
 					<div class="font-semibold text-[15px] text-space-cadet">Written by Benz</div>
-					<div class="text-[13px] text-[#5E5E66]">CTO · Orange Cap Innovative · microbenz.in.th</div>
+					<div class="text-[13px] text-[#5E5E66]">microbenz.in.th</div>
 				</div>
 			</div>
 		</div>
